@@ -45,8 +45,12 @@
 %\usepackage{iopams}  
 \usepackage{graphicx} 
 \usepackage{xcolor}
+\usepackage{lineno}
+\usepackage{cite}
+\linenumbers
 
 \begin{document}
+
 
 \title[]{Identification of  nuclear recoils in gas  with a sCMOS camera}
 
@@ -90,7 +94,8 @@ In this paper we describe the use of a scientific CMOS camera to capture the lig
 
  \section{Experimental layout and data }
  A 7 liter active drift volume TPC  (named LEMOn  \cite{paperBTF} ) was employed to detect the particles recoils. It 
-features   a  200$\times$240~mm$^2$ elliptical field cage with a 200 mm distance between the anode and the cathode. The anode side is instrumented with a 200$\times$240~mm$^2$ rectangular triple  GEM  LHCb-like \cite{bib:thesis}  structure  (70~$\mu$m diameter holes and 140~$\mu$m pitch   and  with two 2 mm wide  transfer  field gaps). The light emitted from the GEMs is detected with   an ORCA-Flash 4.0 camera \cite{ORCAcamera} through a  $203\times254\times1$ mm$^3$ transparent window and a  bellow with a tunable length (Fig.\ref{fig:LemonShielded}.  This camera is positioned  at a 52 cm  distance from the outemost  GEM layer and is based on a sCMOS sensor with a high granularity ($2048\times2048$ pixels), very low noise (around two photons per pixel), high sensitivity (70\%  quantum efficiency at  600~nm) and good linearity. This camera is instrumented with a Schneider lens (f/0.95-25~mm ). The lens is placed at a distance $d$ of 50.6 cm from the last GEM
+features   a  200$\times$240~mm$^2$ elliptical field cage with a 200 mm distance between the anode and the cathode. The anode side is instrumented with a 200$\times$240~mm$^2$ rectangular triple  GEM structure.
+Standard LHCb-like \cite{bib:thesis} GEMs  (70~$\mu$m diameter holes and 140~$\mu$m pitch) were used with two 2~mm wide transfer gaps between them. The light emitted from the GEMs is detected with   an ORCA-Flash 4.0 camera \cite{ORCAcamera} through a  $203\times254\times1$ mm$^3$ transparent window and a  bellow with a tunable length (Fig.\ref{fig:LemonShielded}.  This camera is positioned  at a 52 cm  distance from the outemost  GEM layer and is based on a sCMOS sensor with a high granularity ($2048\times2048$ pixels), very low noise (around two photons per pixel), high sensitivity (70\%  quantum efficiency at  600~nm) and good linearity. This camera is instrumented with a Schneider lens (with an aperture f/0.95 and a focal length of 25~mm). The lens is placed at a distance $d$ of 50.6 cm from the last GEM
 in order to obtain a de-magnification
 $\delta = (d/f) - 1 = 19.25$ to
 image a surface $25.6 \times 25.6$~cm$^2$ onto the
@@ -98,9 +103,7 @@ $1.33 \times 1.33$~cm$^2$ sensor.
 In this configuration, each pixel
  is therefore imaging  an effective area of 125$\times$125~$\mu$m$^2$ of the GEM layer. The fraction of the light collected by the lens can be evaluated \cite{bib:jinst_orange1} to be $1.7 \times 10^{-4}$.
 
-
-
-On the cathode side, LEMOn has been equipped with a 50$\times$50~mm$^2$ HZC Photonics XP3392 photomultiplier \cite{PMTPhotonics} (PMT) detecting light through a transparent $50\times50\times4$~mm$^3$ fused silica window. More details can be found in ...
+A semi-transparent mesh-based cathode was used in order to collect light on that side also with a 50$\times$50~mm$^2$ HZC Photonics XP3392 photomultiplier \cite{PMTPhotonics} (PMT) detecting light through a transparent $50\times50\times4$~mm$^3$ fused silica window. More details can be found in ...
 
 
  
@@ -132,19 +135,17 @@ The field cage was powered by a CAEN N1570.\cite{CAENN1570} generating an electr
 
 \textcolor{red}{The ORCA Camera I/O has been configured in order to get a pre-trigger, that must occur 80~$\mu$s before the shutter, and to synchronize the PMT signal waveform acquired with an oscilloscope LeCroy 610Zi. Optics and exposure time (30~ms) were optimized to ensure the largest light collection and to avoid events due to the natural radioactivity. Between 100 and 300 images were typically acquired per run. }
 
-A  5cm thick lead shielding was mounted around the LEMOn field cage to reduce the natural radioactivity background. From the measurements of the GEM current with and without the lead shielding  we estimate a reduction of a factor xx of the external source of background.
+A  5cm thick lead shielding was mounted around the LEMOn field cage to reduce the natural radioactivity background. From the measurements of the GEM current with and without the lead shielding a reduction of the total ionization in the sensitive gap, very likely due to external radioactivity of a factor 2 was estimated.
 
- An $Am$-$Be$ source was operated  at a distance ... collimated ... with an activity of...
- Neutron with a kinetic energy in a range between 1 to 10 MeV are emitted (isotropically?) 
+ An $Am$-$Be$ source with an activity of 3.5~$\times~$10$^3$~MBq was placed at a distance of 40~cm. This source isotropically emits:
+ \begin{itemize}
+     \item photons with an energy of 59~keV produced by $^{241}$Am;
+     \item neutrons with a kinetic energy mainly in a range between 1 to 10 MeV due to the interaction of $\alpha$s emitted by the $^{241}$Am with the Be;
+     \item photons with an energy of 4~MeV produced along with neutrons in the interacion between $\alpha$s and Be.
+ \end{itemize}
  
- A 
+The presence of lead shield around the sensitive volume absorbed almost completely the 59~keV photon component. A small faction of them reached the gas trough small slits accidentally present between the bricks.
  
-
-
-
-
-
-
 
  \section{Cluster pattern recognition}
  
@@ -227,7 +228,8 @@ Define basic
 \textcolor{red}{non farei vedere electron recoil che non ha senso in funzione dell'energia con questo campione }
 
 
-\bibliography{mybiblio}
+\bibliography{mybiblio}{}
+\bibliographystyle{plain}
 
 \end{document}
 
