@@ -1,14 +1,14 @@
 The aim of the superclustering procedure is to collect the majority of
-the pixels belonging to a track which is longer and possibly with a pattern
-more irregular than the one clustered by \idbscan. The main limitation
-of  \idbscan to follow a long track is mainly originated by the irregular behavior of the energy
-deposition along the path length.  As can be clearly seen in
-Fig.~\ref{fig:basic_clusters} (right), or even in the example of a raw
-image of an event with two long cosmic rays in
-Fig.~\ref{fig:typicalimage1} (right), clusters with larger energy
-release are followed by regions along the path with a lower or even a
-zero release.  These local minima are sometimes as large, in the 2D
-space, as the typical size of the $\epsilon$ parameter of
+the pixels belonging to a track which is longer and possibly with a
+pattern more irregular than the one clustered by \idbscan. The main
+limitation of \idbscan to follow a long track is mainly originated by
+the irregular behavior of the energy deposition along the path length.
+As can be clearly seen in Fig.~\ref{fig:basic_clusters} (right), or
+even in the example of a raw image of an event with two long cosmic
+rays in Fig.~\ref{fig:typicalimage1} (right), clusters with larger
+energy release are followed by regions along the path with a lower or
+even a zero release.  These local minima are sometimes as large, in
+the 2D space, as the typical size of the $\epsilon$ parameter of
 \dbscan~\cite{dbscan}. Despite the low electronic noise of the
 ORCA-Flash 4.0 camera sensor, the energy releases in these local
 minima are similar in magnitude to the average single-pixel noise.
@@ -40,15 +40,16 @@ The procedure adopted for the final supercluster reconstruction in the
 \lemon detector starts from defining the \textit{interesting regions}
 in the image that may contain pixels from an energy deposit. These are
 identified by the basic cluster algorithm \idbscan previously
-described and run  \textcolor{red}{run ??} in the $512\times512$ reduced-resolution image. In
-order to gather the peripheral pixels, especially along the track
-trajectory where breaks in sub-basic clusters may have happened, a
-window of $5\times5$ pixels is considered, around each pixel belonging
-to a macro-pixel clustered in a basic cluster. A full resolution image
-formed only by the interesting pixels passing the simple initial
-filtering described in Sec.~\ref{sec:zerosuppression} is formed.  The
-gradients of such image are computed pixel-by-pixels to look for the
-edge region where the image changes from signal to noise-only:
+described and run \textcolor{red}{run ??} in the $512\times512$
+reduced-resolution image. In order to gather the peripheral pixels,
+especially along the track trajectory where breaks in sub-basic
+clusters may have happened, a window of $5\times5$ pixels is
+considered, around each pixel belonging to a macro-pixel clustered in
+a basic cluster. A full resolution image formed only by the
+interesting pixels passing the simple initial filtering described in
+Sec.~\ref{sec:zerosuppression} is formed.  The gradients of such image
+are computed pixel-by-pixels to look for the edge region where the
+image changes from signal to noise-only:
 \begin{equation}
 \label{eq:gradient}
 \vert\vert\nabla(N)\vert\vert =
@@ -85,11 +86,10 @@ same gradient, defined before. The function $g(N)$ is given by:
 \begin{equation}
 g(N) = \frac{1}{\sqrt{1+\alpha\vert\nabla G_\sigma * N\vert}},
 \end{equation}
-which is minimal in the edges of the image.  The
-$G_\sigma * N$ is the aforementioned Gaussian filter with standard
-deviation $\sigma=5$, and the parameter $\alpha$, which regulates the
-strength of the filtering is tuned on typical \lemon images to be
-$\alpha=100$.
+which is minimal in the edges of the image.  The $G_\sigma * N$ is the
+aforementioned Gaussian filter with standard deviation $\sigma=5$, and
+the parameter $\alpha$, which regulates the strength of the filtering
+is tuned on typical \lemon images to be $\alpha=100$.
 
 This method has been chosen because it allows to follow track patterns
 that may vary from convex to concave shape, and also have kinks, in

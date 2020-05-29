@@ -57,23 +57,30 @@
 
 % wording
 \newcommand {\ie}{\mbox{i.e.}\xspace}     %i.e.
+\newcommand {\eg}{\mbox{e.g.}\xspace}     %e.g.
 
 % formulas
 \newcommand{\fe}{\ensuremath{^{55}\textrm{Fe}}\xspace}
 \newcommand{\abs}[1]{\ensuremath{\vert #1 \vert}}
 \newcommand{\ambe}{\ensuremath{\textrm{Am} \textrm{Be}}\xspace}
+\newcommand{\isclu}{\ensuremath{I_{SC}}\xspace}
+\newcommand{\tsigmag}{\ensuremath{\sigma^T_{Gauss}}\xspace}
+\newcommand{\dedl}{\ensuremath{\frac{dE}{dl_p}}\xspace}
 
 % detector and algorithms
-\newcommand{\lemon}{{\textsc{LEMOn}}\xspace}
-\newcommand{\idbscan}{{\textsc{iDBSCAN}}\xspace}
-\newcommand{\dbscan}{{\textsc{DBSCAN}}\xspace}
-\newcommand{\gac}{{\textsc{GAC}}\xspace}
-\newcommand{\nnc}{{\textsc{NNC}}\xspace}
+\newcommand{\lemon}{{\textsc{Lemon}}\xspace}
+\newcommand{\idbscan}{{\textsc{iDbscan}}\xspace}
+\newcommand{\dbscan}{{\textsc{Dbscan}}\xspace}
+\newcommand{\gac}{{\textsc{Gac}}\xspace}
+\newcommand{\nnc}{{\textsc{Nnc}}\xspace}
 \newcommand{\GEANTfour} {{\textsc{Geant4}}\xspace}
+\newcommand{\SRIM} {{\textsc{Srim}}\xspace}
+\newcommand{\garfield} {{\textsc{Garfield}}\xspace}
 
 % units
 \newcommand{\unit}[1]{\ensuremath{\textrm{\,#1}}\xspace}
 \newcommand{\keV}{\ensuremath{\,\textrm{ke\hspace{-.08em}V}}\xspace}
+\newcommand{\MeV}{\ensuremath{\,\textrm{Me\hspace{-.08em}V}}\xspace}
 
 \author{A Marco Emanuele, Cavoto Gianluca, Pinci Davide}
 
@@ -109,11 +116,56 @@
 
 The advent of a market of high position resolution and single photon  light sensors can open new opportunity to investigate ultra-low rate phenomena as Dark Matter  (DM) particle  scattering on nuclei in a gaseous  target.
 
-The nature of DM is still one of the key  issues to understand  our Universe. Different models  predicts the existence of neutral particles with a mass of GeV  or higher that would fill our Galaxy. They  could interact with the nuclei present in ordinary matter producing highly ionizing nuclear recoils but with a  kinetic energy as small as  few keV. Moreover, given the motion of the Sun in the Milky Way towards the Cygnus constellation such nuclear recoils would exhibit a dipole angular distribution in a terrestrial detector.
-In this paper we describe the use of a scientific CMOS camera to capture the light emitted by Gas Electron Multipliers (GEMs) in a Time Projection Chamber (TPC) device. The GEMs are located in the TPC gas volume at the anode position and are used to convert the ionization produced in the gas by   the  nuclear recoils into flashes of visible light. The flash of light and its shape  can be located in space adopting a cluster  recognition algorithm. Neutron and  $\gamma$ radiation emitted by radioactive sources are used to  set in motion  atomic electrons and nuclei respectively in the gas volume. Moreover, natural radiation as cosmic rays is leaving a trail of ionization in the gas. They are all producing different  patterns of light emission from the GEMs that can be reconstructed and analyzed. Nuclear recoils can then be efficiently identified down to a few keV kinetic energy. 
+The nature of DM is still one of the key  issues to understand  our Universe. Different models  predicts the existence of neutral particles with a mass of GeV  or higher that would fill our Galaxy. They  could interact with the nuclei present in ordinary matter producing highly ionizing nuclear recoils but with a  kinetic energy as small as  few \keV. Moreover, given the motion of the Sun in the Milky Way towards the Cygnus constellation such nuclear recoils would exhibit a dipole angular distribution in a terrestrial detector.
+In this paper we describe the use of a scientific CMOS camera to capture the light emitted by Gas Electron Multipliers (GEMs) in a Time Projection Chamber (TPC) device. The GEMs are located in the TPC gas volume at the anode position and are used to convert the ionization produced in the gas by   the  nuclear recoils into flashes of visible light. The flash of light and its shape  can be located in space adopting a cluster  recognition algorithm. Neutron and  $\gamma$ radiation emitted by radioactive sources are used to  set in motion  atomic electrons and nuclei respectively in the gas volume. Moreover, natural radiation as cosmic rays is leaving a trail of ionization in the gas. They are all producing different  patterns of light emission from the GEMs that can be reconstructed and analyzed. Nuclear recoils can then be efficiently identified down to a few \keV kinetic energy. 
  The study of the optical readout of TPC has been recently conducted with several small size prototypes (NITEC~\cite{JINST:nitec}, ORANGE~\cite{NIM:Marafinietal, bib:jinst_orange2}, \lemon~\cite{bib:eps, bib:ieee17, bib:elba}) with various particles sources. In the following, we report the study of nuclear recoils excited by neutron from a  \ambe source and electron recoils from a \fe source in the gas volume of the  \lemon prototype.
 
- \section{Experimental layout and data }
+\section{Properties of the gas mixture}
+
+Main parameters of the gas mixtures were studied by means of different software packages. In particular \garfield~\cite{bib:garfield,bib:garfield1} was used to evaluate transport properties for ionized electrons in sensitive volume for an electric field of 500 V/cm.
+
+Because of the diffusion in the gas, electrons produced  a distance $z$ from the GEM, will occupy a region on the GEM surface with a gaussian transverse profile and with a $\sigma_{\mathrm{T}}$ given by:
+
+\begin{equation}
+\label{eq:diff}
+\sigma_{\mathrm{T}} = \sqrt{\sigma^2_{\mathrm{T0}} \oplus D^2_{\mathrm{T}} \cdot z} 
+\end{equation}
+
+
+$D_{\mathrm{T}}$ being the transverse diffusion coefficients calculated to be
+$
+D_{\mathrm{T}}^{60/40}~=~140~\frac{\mu{\mathrm{m}}}{\sqrt{\mathrm{cm}}}.
+$
+
+The value of $\sigma^2_{\mathrm{T0}}$ was measured to be about 300~$\mu$m \cite{bib:btf,bib:fe55New}. Therefore, in average, a point-like ionization will result in a spot of 3-4 mm$^2$.
+
+Effective ranges of electron and He-nuclei recoils were calculated
+respectively by \GEANTfour~\cite{bib:geant} and
+\SRIM~\cite{bib:srim}. Results as a function of particle kinetic
+energy are shown in Fig.~\ref{fig:range}:
+\begin{itemize}
+    \item He-nuclei recoils have a sub-millimetre range up to energies
+      of 100\keV and are thus expected to produce bright spots with
+      sizes mainly dominated by diffusion effects;
+    \item low energy (less than 10\keV) electron recoils are in
+      general larger then He-nuclei recoils with same energy and are
+      expected produce less intense spot-like signals. For a kinetic
+      energy of 10\keV, electron range becomes longer than 1\unit{mm}
+      and for few tens of \keV, tracks of few centimetres are
+      expected.
+\end{itemize}
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.49\linewidth]{figures/range_ER_NR.pdf}
+    \caption{Average projected ranges for electron and He-nuclei recoils as a faction of their kinetic energy.
+      \label{fig:range}}
+  \end{center}
+\end{figure}
+
+
+\section{Experimental layout and data }
+\label{sec:layout}
  A 7 liter active sensitive volume TPC  (named \lemon  \cite{paperBTF} ) was employed to detect the particles recoils. The sensitive volume where the ionization electrons are drifting through
 features   a  200$\times$240~mm$^2$ elliptical field cage with a 200 mm distance between the anode and the cathode. The anode side is instrumented with a 200$\times$240~mm$^2$ rectangular triple  GEM structure.
 Standard LHCb-like \cite{bib:thesis} GEMs  (70~$\mu$m diameter holes and 140~$\mu$m pitch) were used with two 2~mm wide transfer gaps between them. The light emitted from the GEMs is detected with   an ORCA-Flash 4.0 camera \cite{ORCAcamera} through a  $203\times254\times1$ mm$^3$ transparent window and a  bellow with a adjustable length (Fig.\ref{fig:LemonShielded}.  This camera is positioned  at a 52 cm  distance from the outermost  GEM layer and is based on a sCMOS sensor with a high granularity ($2048\times2048$ pixels), very low noise (around two photons per pixel), high sensitivity (70\%  quantum efficiency at  600~nm) and good linearity. This camera is instrumented with a Schneider lens (with an aperture f/0.95 and a focal length of 25~mm). The lens is placed at a distance $d$ of 50.6 cm from the last GEM
@@ -184,9 +236,12 @@ $\alpha \, ^{9}Be \rightarrow \, n ^{12}C  \, \gamma$ reaction.
   \end{center}
 \end{figure}
 
-\lemon was operated in an overground location at Laboratori Nazionali di Frascati (LNF) with  a He-CF$_4$ (60/40) gas mixture, the triple GEM system set at a voltage across the GEM sides of \textcolor{red}{xxx~V} and an electric field between them of \textcolor{red}{x.0} kV/cm - using a HV GEM power supply \cite{Corradi:2007df} ensuring stability and accurate monitoring of the bias currents. The gas mixture was kept at atmospheric pressure under continuous flow of about \textcolor{red}{x.0} cc/min and with the GEMs operated at \textcolor{red}{x.0} $ \times10^5$ gain. The typical photon yield for this  type of gas mixtures has been measured to be around  0.07 photons per avalanche electron.\cite{bib:jinst_orange1, bib:roby, bib:tesinatalia}
+\lemon was operated in an overground location at Laboratori Nazionali di Frascati (LNF) with  a He-CF$_4$ (60/40) gas mixture, the triple GEM system set at a voltage across the GEM sides of {460~V} and an electric field between them of {2.5} kV/cm - using 
+six independent HV channels from a CAEN A1257 module
+%a HV GEM power supply \cite{Corradi:2007df} 
+ensuring stability and monitoring the bias currents with a precision of 20~nA. The gas mixture was kept at atmospheric pressure under continuous flow of about 200~cc/min and with the GEMs operated at \textcolor{red}{2.0} $ \times10^6$ gain. The typical photon yield for this  type of gas mixtures has been measured to be around 0.07 photons per avalanche electron\cite{bib:jinst_orange1, bib:roby, bib:tesinatalia}.
 
-The field cage was powered by a CAEN N1570.\cite{CAENN1570} generating an electric field  of 0.6 kV/cm. 
+The field cage was powered by a CAEN N1570.\cite{CAENN1570} generating an electric field of 0.5~kV/cm. 
 
 \textcolor{red}{this part was copied by the lemon btf paper - must be revised}
 \textcolor{red}{The ORCA Camera I/O has been configured in order to get a pre-trigger, that must occur 80~$\mu$s before the shutter, and to synchronize the PMT signal waveform acquired with an oscilloscope LeCroy 610Zi. Optics and exposure time (30~ms) were optimized to ensure the largest light collection and to avoid events due to the natural radioactivity. Between 100 and 300 images were typically acquired per run. }
@@ -196,9 +251,9 @@ A  5cm thick lead shielding was mounted around the \lemon field cage to reduce t
  An neutron source, based on a 3.5~$\times~$10$^3$~MBq activity  $^{241}$Am source contained in a Beryllium capsule (\ambe) was placed at a distance of 50~cm from the sensitive volume side. 
  Because of the interactions between $\alpha$ particles produced by the $^{241}$Am and the Beryllium nucluei, the \ambe source isotropically emits:
  \begin{itemize}
-     \item photons with an energy of 59~keV produced by $^{241}$Am;
+     \item photons with an energy of 59\keV produced by $^{241}$Am;
      \item neutrons with a kinetic energy mainly in a range between 1 to 10 MeV;
-     \item photons with an energy of 4~MeV produced along with neutrons in the interaction between $\alpha$ and Be nucleus.
+     \item photons with an energy of 4\MeV produced along with neutrons in the interaction between $\alpha$ and Be nucleus.
  \end{itemize}
  
 The presence of a lead shield around the sensitive volume absorbed almost completely the 59~keV photon component. A small faction of them reached the gas through small gaps accidentally present between the bricks.
@@ -254,40 +309,18 @@ Section~\ref{sec:clustershapes}.
 
 \section{Cluster observables}
 \label{sec:clustershapes}
- 
- Define  (projected) length $l$, light $L$, energy $E$ (light after calibration), density of light $\delta$ (and then $\frac{dE}{dl}$ after calibration but projected that's why I am using $dl$ !), slimness $S$
- 
- Describe here briefly the $E$ calibration ? saturation effect removal ? 
+\input{section_clustershapes}
+
  
 \section{Nuclear recoil identification results}
+\label{sec:results}
+\input{section_results}
  
- During the data-taking xxx frames were recorded in absence of any external source ({\it no-source} sample). In these frames the interaction of ultra-relativistic cosmic ray particles (mostly muons) are clearly visible  as  very long cluster. Internal radioactivity of the \lemon materials  also contribute several smaller size cluster.  It is then possible to define a pure sample of cosmic ray tracks by requiring $L$ > 13 cm and $S$ < 0.1  \textcolor{red}{che altro manca? }. The cosmic ray cluster identified with this selection show small values of  $\delta$ $\sim $ 5 well compatible with the small specific ionization of ultra-relativistic particles. 
- In Fig.\ref{fig:cosmics} we show the distribution of the observed $\frac{dE}{dl}$ for the no-source sample and for the Am-Be samples. The broadening of the distribution is mainly due to the specific energy loss fluctuation in the gas mixture of the cosmic ray particles.   Its mean value corrected for the effect of the angular distribution of the cosmic rays is   xx keV/cm that is in good agreement with the Garfield prediction of 2.3 keV/cm.  The angle with the horizontal axis is evaluated by  measuring the distance between \textcolor{red}{EAM spiega come hai fatto}. In Fig.\ref{fig:cosmics} the distribution   of the  angle of the cosmic ray cluster in the no-source sample is shown.
- 
- 
- \begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.45\linewidth]{dEdx_cosmics.png}
-	\includegraphics[width=0.45\linewidth]{cosmic_angle.png}
-  	\caption{Left: Distributions of reconstructed energy release per centimetre for cosmic rays. Right: Distributions of reconstructed angles for cosmic rays. }
-  	\label{fig:cosmics}
-\end{figure}
-\textcolor{red}{Non farei vedere il Ferro in questa figura. Inoltre il plot delle differenza deve essere fatto su scala diversa. }
+\clearpage
 
+\section{Conclusion and Outlook}
  
- \section{Conclusion and Outlook}
  
- 
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.45\linewidth]{fe_diff_simplefit.pdf}
-	\includegraphics[width=0.45\linewidth]{spectrum_59keV.png}
-  	\caption{Left: Spectrum of energy of the clusters reconstructed as produced by interactions of 5.9~keV photons in gas. Right: Spectrum of energy of the clusters reconstructed as produced by interactions of 59~keV photons in gas.}
-  	\label{fig:55Fe&59keV}
-\end{figure}
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.45\linewidth]{energy_spectrum.png}

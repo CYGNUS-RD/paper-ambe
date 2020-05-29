@@ -2,19 +2,62 @@ The containment of the energy in the supercluster has been verified
 with simulations of nuclear and electron recoils performed with
 \GEANTfour~\cite{GEANT4} and the gas mixture of the \lemon detector.
 For both types of recoils, for the energy range of interest for Dark
-Matter search, \ie $E<10$\keV, the median of the
-$\abs{E-E_\textrm{true}}/E_\textrm{true}$ is within 5\%. The energy
-resolution can be measured in data with \fe source, which provides
-monochromatic photons of 5.9\keV, as was described in
-Ref.~\cite{bib:fe55}. The distribution of the spot integral, defined as
-the sum of the counts of all the pixels belonging to the supercluster,
-for a run in presence of \fe source, is shown in
-Fig.~\ref{fig:feuncalibpeak}. While to perform the basic- and
-super-clustering only pixels passing the zero suppression are
-considered, for the energy estimate all the pixels within the cluster
-contours are counted, eventually with negative counts, after the
-pedestal subtraction. This is done not to induce a bias on the energy
-estimate.
+Matter search, \eg $E<10\keV$, when considering deposits without
+electronics noise and no diffusion in the gas, the peak of the
+$\abs{E-E_\textrm{true}}/E_\textrm{true}$ is within 5\%. Adding a
+Gaussian noise distribution with a mean equal to the one observed in
+the pedestal runs, and a diffusion following the parametrization in
+Eq.~\ref{eq:diff}, the fraction of the true energy considered
+decreases to about 80\%, as shown in Fig.~\ref{fig:eoveretrue}. The
+distributions are made for nuclear recoils with $E=6\keV$ at the exact
+center of the \lemon detector. The mean and Gaussian width of the peak
+are estimated by fitting the distributions with a Crystal Ball
+shape~\cite{Oreglia:1980cs,Gaiser:1982yw}, which includes a tail to
+consider a non Gaussian asymmetric tail due to partial containment of
+the supercluster.
+
+The decrease in the energy containment of the supercluster is due to
+the smearing of the 2D track pattern around the periphery of the
+cluster.  This decreases the gradients in Eq.~\ref{eq:gradient} around
+the edges, and so the supercluster can shrink more around the crest,
+loosing part of the tails that can be confused more easily with the
+noise.  A more realistic noise description, and an improved diffusion
+model, based on the one measured in data is necessary to tune the
+supercluster parameters in simulation to recover part of the
+containment. Despite this, the resolution in presence of noise and
+diffusion is estimated in this simulated nuclear recoils with
+$E=6\keV$ to be around 4\%.
+%
+\begin{figure}[ht]
+  \begin{center} \includegraphics[width=0.49\linewidth]{figures/eoveretrue} \caption{Distribution
+    of the ratio of reconstructed supercluster energy, $E$, and the
+    true energy of nuclear recoils $E_{true}=6\keV$, generated in the
+    center of \lemon and simulated with \GEANTfour Monte Carlo
+    (MC). The hollow points show the MC events generated wihout
+    electronics noise and diffusion in the gas, while the filled
+    circles represent MC events with both effects considered. The
+    curves represent parametric fits with a Crystal Ball
+    function.\label{fig:eoveretrue}} \end{center}
+\end{figure}
+%
+
+The absolute energy scale is then calibrated with the peak measured in
+data with the \fe source, which provides monochromatic photons of
+5.9\keV, as was described in Ref.~\cite{bib:fe55}. The supercluster
+integral, defined as:
+\begin{equation}
+\label{eq:integral}
+I = \sum_i^{cluster} N_i,
+\end{equation}
+where $N_i$ is the number of counts (photons) in a pixel $i$, and the
+sum runs over all the pixels of the supercluster. Note that, while to
+perform the basic- and super-clustering only pixels passing the zero
+suppression are considered, for the energy estimate all the pixels
+within the cluster contours are counted, eventually having negative
+light yield, after the pedestal subtraction. This is done to not
+induce a bias on the energy estimate.  The distribution of \isclu, for
+a run taken in presence of \fe source, is shown in
+Fig.~\ref{fig:feuncalibpeak}.
 %
 \begin{figure}[ht]
   \begin{center}
@@ -31,8 +74,112 @@ estimate.
 The energy resolution for the reconstructed \gac superclusters is
 about 18\%, similar to the one that can be obtained with only the
 basic clustering step with \idbscan~\cite{iDBSCAN}, and improving the
-one with the simple NNC algorithm previously used for the CYGNO
-experiment~\cite{bib:fe55}.
+one with the simple \nnc algorithm previously used for the CYGNO
+experiment~\cite{bib:fe55}. This value is still much larger than the
+one obtained with the simulation of nuclear recoils at the same
+energy, but an improved noise and gas diffusion model are needed to
+improve the data-to-simulation agreement.
 
+The single-spot peak position in runs with \fe source allows to
+calibrate the absolute energy scale of the \lemon detector. Using runs
+with this monochromatic, high rate source, positioned at different
+distances from the GEM planes, a decrease of the light response for
+lower distances from the GEM has been observed. This effect is
+opposite to the expected behavior of a decreasing light yield at
+larger distances. Indeed, it is expected that during the drift along
+the $z$-direction, the ionization charge undergoes a diffusion in the
+TPC gas, and consequently some loss in the light collection may be
+expected. The opposite behavior, instead, is clearly observed for \fe
+clusters close to the multiplication area. While this effect is
+currently under study, it has been preliminarly attributed to a
+possible saturation effect of the GEMs, especially in the third stage
+of multiplication, for which the charge density in one hole is
+maximum.  In this working hypothesis, an effective, heuristic
+correction has been developed, which depends on the charge density
+within a cluster from a \fe deposit. The light density, $\delta$, is
+defined as:
+\begin{equation}
+  \label{eq:density}
+  \delta = \isclu / n_p,
+\end{equation}
+where $n_p$ is the number of pixels passing the zero-suppression
+threshold (differently from the numerator, where all the pixels in the
+supercluster are considered).
 
+This effective calibration provides the absolute energy of a spot-like
+region compatible with the \fe ones, as a function of the supercluster
+density, $\delta$: $E=c(\delta)\cdot I$. In the hypotesis of saturation, the
+\textit{local} density along the track is the parameter which
+regulates the magnitude of the effect, thus the correction has to be
+applied dynamically for each slice of the supercluster with a size
+similar to the \fe spots.  This is achieved with the procedure
+described in the following.
 
+First, the supercluster \textit{skeleton}, \ie, the 1 pixel wide
+representation along the energy deposition path, is reconstructed.
+This is performed with a morphological thinning of the superclusters
+with the iterative algorithm of Ref.~\cite{thin1,thin2}.  Second, a
+pruning of the obtained skeleton is done, to remove residual branches
+along the main pattern, using a hit-or-miss transform.  The output of
+the skeletonization for the track of Fig.~\ref{fig:super_clusters1} is
+shown in Fig.~\ref{fig:skeleton}.
+%
+\begin{figure}[ht]
+  \begin{center}
+     \includegraphics[width=0.49\linewidth]{figures/skeleton_paper}
+     \caption{Output of the skeletonization and pruning of the
+       branches for one example supercluster extended in
+       space.  \label{fig:skeleton}}
+  \end{center}
+\end{figure}
+%
+
+For the calibration procedure, the skeleton is followed, starting from
+one of the two extremes, and cirles having the center on a pixel of
+the axis and a radius equal to the average spot size of the \fe
+clusters are defined. The local density $\delta_s$ of the slice $s$ is
+computed, and its integral $I_s$ is calibrated to an absolute energy
+through the effective correction $E_s=c(\delta_s)\cdot I_s$. The
+pixels of the supercluster used for the slice calibration are removed
+(including the skeleton ones), and the procedure is iterated, until
+having consumed all the pixels. The sum of the energies of all the
+slices is the estimate of the calibrated energy of the supercluster:
+%
+\begin{equation}
+  \label{eq:ecal}
+  E_{SC} = \sum_s^{slices} E_s
+\end{equation}
+%
+As a closure test of the procedure, the calibrated energy of the
+superclusters reconstructed in the runs with the \fe source, is shown
+in Fig.~\ref{fig:fepeak}.  Clearly, the calibration procedure is an
+overkill for the case of the small \fe spots, but it is necessary to
+apply it to very long cosmic ray tracks or even for medium-length
+superclusters from nuclear and electron recoils. It can be noted that
+the energy resolution worsen, with respect the case of the
+uncalibrated energy, as a sign that the heuristic correction is
+slightly suboptimal. Instead, the energy scale is adjusted to the
+expected level with a good level of accuracy, which is the main
+purpose of this procedure.
+%
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.49\linewidth]{figures/fe_energy_fit}
+    \caption{Distribution of the supercluster energy, calibrated with
+      the procedure described in the text, in events with the \fe
+      source. Clearly visible is the large peak of a single spot, and,
+      at around twice the energy, a broader peak for the case of two
+      neighbor spots merged in a single supercluster.
+      \label{fig:fepeak}}
+  \end{center}
+\end{figure}
+%
+
+The skeletonization procedure provides a general method to estimate
+the track length ($l$), which is accurate both in the case of straight
+and curve track.  In the case of straight tracks, the length extracted
+in this way coincides with the major axis estimated with a principal
+component analysis (PCA), described in the following section. For
+exactly round spots, the skeleton would collapse in the center of the
+cluster and the resulting length would be 1 pixel, but this completely
+symmetric case never happens in the studied samples.
