@@ -1,28 +1,32 @@
 The main variable to distinguish signals from and nuclear recoils, and
 different types of background, is the energy density of the cluster.
 To enhance the purity, a preselection is applied, prior to the tight
-selection on $\delta$. Clusters with $p_l>500$ pixels, or $\xi<0.3$
-are rejected, to remove the contribution from cosmic rays. A loose
+selection on $\delta$. Clusters with $l_p>500$ pixels, or $\xi<0.3$
+are rejected, to suppress the contribution from cosmic rays. A loose
 selection on $\delta>5$ photons/pixel is applied, also to remove the
 residual cosmic ray background based on their low specific ionization.
 With this selection, the distribution in the 2D plane $\delta$--$l_p$
 is shown in Fig.~\ref{fig:dvsl} for data with \ambe source, no source,
 and the resulting background-subtracted \ambe data. The latter
-distribution shows a component, present only in the data with \ambe
-source, which has a moderate track length, $1.5<l_p<3.0$\unit{cm},
-despite a much lower energy density than the one characteristic of the
-energetic nuclear recoils ($9<\delta<12$). Since the density is
-inversely proportional to the number of active pixels $n_p$, which is
-correlated to the track length, the almost linear decrease of $\delta$
-as a function of $l_p$ points toward a component with fixed
+distribution shows a clear component of clusters with short length
+($l_p\lesssim1$\unit{cm}) and high density ($\delta\gtrsim 10$),
+expected from nuclear recoils deposits. In addition, it shows a
+smaller component, also present only in the data with \ambe source, of
+clusters with a moderate track length, $1.5 \lesssim l_p \lesssim
+3.0$\unit{cm}, and a lower energy density than the one characteristic
+of the nuclear recoils: $9\lesssim\delta\lesssim12$. Since the density
+is inversely proportional to the number of active pixels $n_p$, which
+is correlated to the track length, the almost linear decrease of
+$\delta$ as a function of $l_p$ points to a component with fixed
 energy. The $^{241}$Am is expected to produce photons with
-$E=59\keV$. This hypothesis is verified by introducing a diagonal
-selection $\abs{\delta-y}<2$, where $y=14-p_l/50$, for the clusters
-with $120<l_p<250$\unit{pixels}, which defines a control region
-$PR$. The obtained energy spectrum for these clusters is shown in
-Fig.~\ref{fig:59keV}, and indeed shows a peak at $E=65.6\pm3.2\keV$
-(stat) for these photons, with the expected resolution. These events
-are thus rejected by vetoing the $PR$ phase space.
+$E=59\keV$. This hypothesis is verified by introducing an oblique
+selection in the $\delta-l_p$ plane: $\abs{\delta-y}<2$, where
+$y=14-p_l/50$, for the clusters with $120<l_p<250$\unit{pixels},
+defining the control region $PR$. The obtained energy spectrum for
+these clusters is shown in Fig.~\ref{fig:59keV}, which indeed shows a
+peak at $E=65.6\pm3.2\keV$ for these clusters, within the expected
+resolution. These events are thus rejected from the nuclear recoils
+candidates by vetoing the $PR$ phase space.
 
 \begin{figure}[ht]
   \begin{center}
@@ -43,13 +47,73 @@ are thus rejected by vetoing the $PR$ phase space.
   \includegraphics[width=0.60\linewidth]{figures/calintegral_59keV}
 
   \caption{Calibrated energy spectrum for candidates in the control
-    region $PR$, as defined in the text. The background-subtracted
+    region $PR$, defined in the text. The background-subtracted
     distribution is fitted with a Gaussian PDF, which shows a mean
     value compatible with $E=59\keV$ expected from the $^{241}$Am
     $\gamma$s interacting with the gas. \label{fig:59keV}}
 
   \end{center}
 \end{figure}
+
+An orthogonal information to the light detected by the sCMOS sensor of
+the camera is collected by the PMT, used to trigger the image
+shooting. For each image acquired, the corresponding PMT waveform is
+recorded.  Tracks from cosmic rays, which typically have a large angle
+with respect the cathode plane, as shown in Fig.~\ref{fig:cosmics}
+(right), show a broad signal, characterized by the different arrival
+times of the clusters along the track produced at different $z$. Conversely,
+spot-like signals like \fe deposits or nuclear recoils are characterized by
+a short pulse, as shown in Fig.~\ref{fig:waveforms}.
+%
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.69\linewidth]{Waveforms.png}
+
+    \caption{Example of two acquired waveforms: one short pulse
+  recorded in presence of \fe radioactive source, together with a long
+  signal very likely due to cosmic ray
+  track.  \label{fig:waveforms}}
+
+  \end{center}
+\end{figure}
+
+%
+The Time Over Threshold (\textit{TOT}) of the PMT signal is measured,
+and shown in Fig.~\ref{fig:pmttot}. It can be seen from the region
+around 270\unit{ns}, dominated by the cosmic rays also in the data
+with the \ambe source, that the trigger scale factor
+$\varepsilon_{SF}$ also holds for the PMT event rate.
+%
+\begin{figure}[ht]
+  \begin{center}
+  \includegraphics[width=0.45\linewidth]{figures/pmt_tot}
+
+   \caption{PMT waveform time over threshold ($TOT$).  The last bin
+    integrates all the events with $TOT>400$\unit{ns}. Filled points
+    represent data with \ambe source, dark gray (light blue)
+    distribution represents data with \fe source (no source).  The
+    normalization of data without source is to the same exposure time
+    of the \ambe one, with trigger scale factor $\varepsilon_{SF}$
+    applied. For the data with \fe, a scaling factor of one tenth is
+    applied for clearness, given the larger activity of this
+    source. \label{fig:pmttot}}
+
+  \end{center}
+\end{figure}
+%
+As expected, spot-like clusters (in 3D) correspond to a short pulse in
+the PMT, while cosmic ray tracks have a much larger pulse. The
+contribution of cosmic ray tracks is clearly visible in the data with
+radioactive sources. A selection on this variable is helpful to
+further reject residual comsic rays background present in the \ambe or
+\fe data, in particular tracks which may have been split in multiple
+superclusters, like the case shown in Fig.~\ref{fig:super_clusters2}
+(bottom), and thus passing the above preselection on the cluster
+shapes. A selection $TOT<250$\unit{ns} is then added to the event
+preselection.  It has an efficiency of 98\% on cluster candidates in
+\ambe data (after background subtraction), while it is only 80\%
+efficient on data with \fe source.
+
 
 The light density, and the energy spectrum, after the full
 preselection, is shown in Fig.~\ref{fig:presel}.
@@ -60,57 +124,51 @@ preselection, is shown in Fig.~\ref{fig:presel}.
 
   \caption{Supercluster light density $\delta$ (left) and calibrated
     energy (right), after the full preselection described in the text
-    to select nuclear recoil candidates.  Filled points represent data
-    with \ambe source, light blue distribution represents data without
-    any source.  The normalization of data without source is to the
-    same exposure time of the \ambe one, accounting for the trigger
-    scale factor $\varepsilon_{SF}$, as defined in the text. For the
-    data with \fe source, a scaling by a factor one tenth is applied
-    for visibility, since the much larger cluster occupancy for these
-    events.  \label{fig:presel}}
+    to select nuclear recoil candidates. Filled points represent data
+    with \ambe source, dark gray (light blue) distribution represents
+    data with \fe source (no source).  The normalization of data
+    without source is to the same exposure time of the \ambe one, with
+    trigger scale factor $\varepsilon_{SF}$ applied. For the data
+    with \fe, a scaling factor of one tenth is applied for clearness,
+    given the larger activity of this source.  \label{fig:presel}}
 
   \end{center}
 \end{figure}
 
 The light density, after the preselection, shows a large shape
 difference between the data with \ambe source, data with \fe source,
-and data without any source.  The background-subtracted distributions
-of $\delta$ in \ambe data and \fe data, shown in bottom panels of
-Fig.~\ref{fig:presel} (left), are used to evaluate a curve of electron
-recoils rejection ($1-\varepsilon^\delta_{B}$) as a function of signal
-efficiency ($\varepsilon^\delta_{S}$), obtained varying the selection on
-$\delta$. This is shown in Fig.~\ref{fig:roc}. The same procedure
-could be applied to estimate the rejection factor against the cosmic
-ray induced background, but this is not shown because of the limited
-sample without source and because this kind of background will be much
-suppressed while operating a detector underground. This is shown in
-Fig.~\ref{fig:roc}. While this cut-based approach is minimal, and
-could be improved by profiting of the correlations among $\delta$ and
-the variables used in the preselection in a multivariate analysis, it
-shows that satisfying background rejections can be obtained, against
-electron recoils from $E=6\keV$ photons.
+and data without any source.  The cosmics-background-subtracted
+distributions of $\delta$ in \ambe data and \fe data, shown in the
+bottom panel of Fig.~\ref{fig:presel} (left), are used to evaluate a
+curve of electron recoils rejection ($1-\varepsilon^\delta_{B}$) as a
+function of signal efficiency ($\varepsilon^\delta_{S}$), obtained
+varying the selection on $\delta$. This is shown in
+Fig.~\ref{fig:roc}. The same procedure could be applied to estimate
+the rejection factor against the cosmic ray induced background, but
+this is not shown because of the limited sample without source and
+because this kind of background will be negligible when operating the
+detector underground. This is shown in Fig.~\ref{fig:roc}. While this
+cut-based approach is minimalist, and could be improved by profiting
+of the correlations among $\delta$ and the variables used in the
+preselection in a multivariate analysis, it shows that a good
+rejection factor of electron recoils at $E=6\keV$ can be obtained.
 %
 \begin{figure}[ht]
   \begin{center}
   \includegraphics[width=0.45\linewidth]{figures/density_roc}
 
   \caption{Background rejection as a function of the signal
-    efficiency, varying the selection on th $\delta$ variable in
-    background-subtracted data with either \fe (background sample) or
-    \ambe (signal sample) sources.  The $\delta$ distribution is the
-    one obtained after the preselection described in the
-    text.  \label{fig:roc}}
+    efficiency, varying the selection on th $\delta$ variable in data
+    with either \fe (background sample) or \ambe (signal sample)
+    sources.  \label{fig:roc}}
 
   \end{center}
 \end{figure}
 %
 
-The efficiency of the preselection is assumed to be
-$\varepsilon_{S}^{presel}=100\%$ on the signal, since it mostly
-rejecting long tracks from cosmic rays. The efficiency of the
-preselection on electron recoils is estimated on the \fe data sample,
-and it is measured to be
-$\varepsilon_{B}^{presel}=88\%$. Table~\ref{tab:roc} shows then the
+The preselection efficiency for electron recoils is estimated on
+the \fe data sample, and it is measured to be
+$\varepsilon_{B}^{presel}=70\%$. Table~\ref{tab:roc} shows then the
 full signal efficiency and electrons rejection factor for two example
 working points, $\mathrm{WP}_{40}$ and $\mathrm{WP}_{50}$, having 40\%
 and 50\% signal efficiency for the selection on $\delta$. They
@@ -118,20 +176,21 @@ correspond to a selection $\delta>11$ and $\delta>10$, respectively.
 
 
 \begin{table*}[t]
-\centering
+\caption{Signal (nuclear recoils) and background (electron recoils) efficiency for
+  two different selections on $\delta$.\label{tab:roc}}
+\vspace{10pt}
 \normalsize
+\centering
 \begin{tabular}{l c c c | c c c }
   \hline\hline
   working point & \multicolumn{3}{c}{Signal efficiency} & \multicolumn{3}{c}{Background efficiency} \\
   \hline
   & $\varepsilon_{S}^{presel}$ & $\varepsilon_{S}^{\delta}$ & $\varepsilon_{S}^{total}$ & $\varepsilon_{B}^{presel}$ & $\varepsilon_{B}^{\delta}$ & $\varepsilon_{B}^{total}$ \\
   \hline
-  $\mathrm{WP}_{50}$  & 1                        & 0.5                      & 0.5                     & 0.88                     & 0.050                     & 0.040 \\
-  $\mathrm{WP}_{40}$  & 1                        & 0.4                      & 0.4                     & 0.88                     & 0.012                     & 0.010 \\
+  $\mathrm{WP}_{50}$  & 0.98                        & 0.51                      & 0.50                     & 0.70                     & 0.050                     & 0.035 \\
+  $\mathrm{WP}_{40}$  & 0.98                        & 0.41                      & 0.40                     & 0.70                     & 0.012                     & 0.008 \\
   \hline\hline
 \end{tabular}
-\caption{Signal (nuclear recoils) and background (electron recoils) efficiency for
-  two different selections on $\delta$.\label{tab:roc}}
 \end{table*}
 
 As an example, the energy spectrum for the candidates passing the
@@ -140,7 +199,10 @@ Fig.~\ref{fig:fullsel_effi} (left). With this selection, the signal
 efficiency is computed for both the example working points in bins of
 energy. The electron recoil efficiency, $\varepsilon_{B}^{total}$,
 represents an overall background efficiency at a fixed energy
-$E=6\keV$, characteristic of the \fe emitted photons.
+$E=6\keV$, characteristic of the \fe emitted photons. For the
+$WP_{50}$, the efficiency for very low-energy recoils, $E=6\keV$, is
+still 18\%, dropping to almost zero at $E\lesssim4\keV$.
+
 %
 \begin{figure}[ht]
   \begin{center}
@@ -149,19 +211,39 @@ $E=6\keV$, characteristic of the \fe emitted photons.
 
     \caption{Left: supercluster calibrated energy (left), after the
       full selection, which includes $\delta>10$, 50\% efficient on
-      signal, to select nuclear recoil candidates.  Filled points
+      signal, to select nuclear recoil candidates. Filled points
       represent data with \ambe source, dark gray (light blue)
       distribution represents data with \fe source (no source).  The
       normalization of data without source is to the same exposure
-      time of the \ambe one, accounting for the trigger scale factor
-      $\varepsilon_{SF}$, as defined in the text. For the data with
-      \fe source, a scaling by a factor one tenth is applied for
-      visibility, since the much larger cluster occupancy for these
-      events. Right: efficiency for nuclear recoil candidates,
-      estimated on \ambe data, as a function of energy, for two
-      example selections, described in the text, having either 4\% or
-      1\% efficiency on electron recoils at
+      time of the \ambe one, with trigger scale factor
+      $\varepsilon_{SF}$ applied. For the data with \fe, a scaling
+      factor of one tenth is applied for clearness, given the larger
+      activity of this source. Right: efficiency for nuclear recoil
+      candidates as a function of energy, estimated on \ambe data, for
+      two example selections, described in the text, having either 4\%
+      or 1\% efficiency on electron recoils at
       $E=6\keV$. \label{fig:fullsel_effi}}
 
   \end{center}
 \end{figure}
+
+Examples of two candidates of nuclear recoils, fulfilling the complete
+$\mathrm{WP}_{50}$ selection, with a light density $\delta\gtrsim10$
+photons/pixels, and with energies of 5.2 and 6.0\keV, are shown in
+Fig.~\ref{fig:lowEnergyNR}. The images are a zoom of the
+full-resolution frame, after the pedestal subtraction.
+
+\begin{figure}[ht]
+  \begin{center}
+  \includegraphics[width=0.49\linewidth]{figures/pic_run02097_ev59_oriIma_paper}
+  \includegraphics[width=0.49\linewidth]{figures/pic_run02097_ev317_oriIma_paper}
+
+  \caption{Examples of two nuclear recoil candidates, selected with
+    the full selection, shown in a zoom of $100\times100$ pixel
+    matrix, after the zero suppression of the image. Left: a candidate
+    with $E=5.2\keV$ and $\delta=10.5$, right: a candidate with
+    $E=6.0\keV$ and $\delta=10$.  \label{fig:lowEnergyNR}}
+
+\end{center}
+\end{figure}
+

@@ -30,11 +30,11 @@ are described in the following:
 
     \begin{figure}[ht]
       \begin{center}
-        \includegraphics[width=0.90\linewidth]{figures/pic_run02156_ev631_cluster1_longprofile} \\
-        \includegraphics[width=0.90\linewidth]{figures/pic_run02156_ev631_cluster1_latprofile}
+        \includegraphics[width=0.45\linewidth]{figures/pic_run02156_ev631_cluster1_longprofile}
+        \includegraphics[width=0.45\linewidth]{figures/pic_run02156_ev631_cluster1_latprofile}
         \caption{Supercluster profile in the longitudinal (top) or
           transverse (bottom) direction, for a long and straight
-          cosmic ray track candidate. The longitudinal profiles shows
+          cosmic ray track candidate. The longitudinal profile shows
           energy deposition in sub-clusters, while the transverse
           direction shows the typical width of the diffusion in the
           gas. For the longitudinal profile, the line represent the
@@ -50,20 +50,20 @@ are described in the following:
     the diffusion, the length for patterns like the one shown in the
     example of Fig.~\ref{fig:super_clusters1} is ill-defined. In these
     cases, the path length, $l_p$, computed with the skeletonization
-    process in Fig.~\ref{fig:skeleton} is used;
+    procedure in Fig.~\ref{fig:skeleton} is used;
 
-  \item \textit{Gaussian $\sigma$:~} in the transverse direction the
-    true width of the track is expected to be much lower than the
-    width induced by the diffusion in the gas. Thus, as shown in
-    Fig.~\ref{fig:profiles} (bottom), the standard deviation,
-    \tsigmag, can estimated by a fit with a Gaussian probability
-    density function (PDF);
+  \item \textit{Gaussian width:~} the true width of the track in the
+    transverse direction is expected to be much lower than the width
+    induced by the diffusion in the gas. Thus, as shown in
+    Fig.~\ref{fig:profiles} (bottom), the standard
+    deviation, \tsigmag, can estimated by a fit with a Gaussian
+    probability density function (PDF);
 
   \item \textit{slimness:~} the ratio of the width over length,
     $\xi=w/l$, represents the aspect ratio of the cluster. It is very
     useful to discriminate between cosmic rays-induced background
     (long and thin) from low energy nuclear or electron recoils (more
-    elliptic or circular, as the \fe spots);
+    elliptic or round, as the \fe spots);
     
   \item \textit{integral:~} the total number of photons for all the
   pixels gathered in the supercluster, \isclu, as defined in
@@ -75,11 +75,11 @@ are described in the following:
   \item \textit{density:~} the ratio $\delta$ of \isclu, divided by
   $n_p$, as defined in Eq.~\ref{eq:density};
 
-  \item \textit{energy:~} the calibrated energy, expressed in
-    \keV. The calibration includes both the per-slice correction as a
-    function of the local $\delta$, and the absolute energy scale
-    calibration, which corrects the non perfect containment of the
-    cluster, done with \fe source.
+  \item \textit{energy:~} the calibrated energy, expressed
+    in \keV. The calibration simultaneously performs both the
+    per-slice correction as a function of the local $\delta$, and the
+    absolute energy scale calibration, which corrects the non perfect
+    containment of the cluster, using with \fe source.
 \end{itemize}
 
 The projected supercluster path length, $l_p$, and Gaussian transverse
@@ -88,73 +88,74 @@ different types of runs.  During the data-taking approximately 3000
 frames were recorded in absence of any external source ({\it
 no-source} sample). In these frames the interaction of
 ultra-relativistic cosmic ray particles (mostly muons) are clearly
-visible as very long cluster. Internal radioactivity of the \lemon
-materials also contribute several smaller size cluster. About 1500
-frames were gathered with the \ambe radioactive source, and about
-$10^4$ calibration events with \fe source. In this figure, as well as
+visible as very long clusters. Internal radioactivity of the \lemon
+materials also contribute with several smaller size clusters. About
+1500 frames were gathered with the \ambe source, and approximately
+$10^4$ calibration images with \fe source. In this figure, as well as
 in the following ones showing other cluster properties, the
 distributions obtained from without radioactive sources are normalized
 to the \ambe data total CMOS exposure time. For the data with \fe,
 since the activity of the source is such to produce about 15
 clusters/event, the data are scaled by a factor one-tenth of the \ambe
-exposure time for visibility. Considerations about the trigger
+exposure time for clearness. Considerations about the trigger
 efficiency scale factor between data with and without a source are
-detailed later. The distributions in this section are meant to show
-the different shape of cluster properties.
+detailed later. The distributions in this section are aiming to show
+the different shape of cluster properties between different kinds of
+events.
 
 \begin{figure}[ht]
   \begin{center}
   \includegraphics[width=0.45\linewidth]{figures/length}
   \includegraphics[width=0.45\linewidth]{figures/tgausssigma}
 
-  \caption{Supercluster sizes projected onto the 2D $x$--$y$
-    plane. Left: longitudinal path length, $l_p$.  Right: transverse
-    Gaussian spread, \tsigmag. Filled points represent data with \ambe
-    source, dark gray (light blue) distribution represents data
-    with \fe source (no source).  The normalization of data without
-    source is to the same exposure time of the \ambe one. For the data
-    with \fe source, a scaling by a factor one tenth is applied for
-    visibility, since the much larger cluster occupancy for these
-    events.  \label{fig:clsize}} \end{center}
+  \caption{Supercluster sizes projected onto the $x$--$y$ plane. Left:
+    longitudinal path length, $l_p$.  Right: transverse Gaussian
+    spread, \tsigmag. Filled points represent data with \ambe source,
+    dark gray (light blue) distribution represents data with \fe
+    source (no source).  The normalization of data without source is
+    to the same exposure time of the \ambe one. For the data with \fe,
+    a scaling factor of one tenth is applied for clearness, given the
+    larger activity of this source.  \label{fig:clsize}}
+
+    \end{center}
 \end{figure}
 
 As described in Sec.~\ref{sec:layout}, each pixel images an area of
 $125\times125$\unit{$\mu$m$^2$}. Thus the cluster sizes distributions
-show an average Gaussian width of the \fe spots
+show an average Gaussian width for the \fe spots
 $\tsigmag\approx500$\unit{$\mu$m} (dominated by the diffusion in the
-gas), while it is larger, pproximately 625\unit{$\mu$m}, for data
+gas), while it is larger, approximately 625\unit{$\mu$m}, for data
 with \ambe source.  The contribution of cosmic rays, present in all
 the data, is clearly visible in the data without any radioactive
 source, corresponding to clusters as long as the detector transverse
 size (22\unit{cm}).
 
-Other variables which characterize the clusters is the aspect ratio,
+Other variables, which characterize the clusters, are the slimness,
 $\xi$, and the light density, $\delta$, shown in
 Fig.~\ref{fig:clshape}. The former is a useful handle to reject tracks
-from cosmic rays, which have typycally a slim pattern, with low values
-of $\xi$, while the clusters from \fe are almost round, with values of
-$\xi\approx1$. Data with \ambe source, which contains also a component
-of nuclear recoils, shows a component of round spots, similar in size
-to the ones of \fe, and a more elliptical component, with
-$0.4<\xi<0.8$ values. Finally, the light density $\delta$ is the one
-which is expected to better discriminate among different candidates:
-cosmic rays induced background, electron recoils and nuclear recoil
-candidates. This is the variable used for the final particle
-identification.
+from cosmic rays, which have typycally a slim aspect ratio, \ie, low
+values of $\xi$, while the clusters from \fe are almost round, with
+values of $\xi\approx1$. Data with \ambe source, which contains also a
+component of nuclear recoils, show a component of round spots,
+similar in size to the ones of \fe, and a more elliptical component,
+with $0.4<\xi<0.8$ values. Finally, the light density, $\delta$, is the
+variable expected to better discriminate among different
+candidates: cosmic rays induced background, electron recoils and
+nuclear recoil candidates. This is the variable used for the final
+particle identification.
 
 \begin{figure}[ht]
   \begin{center}
   \includegraphics[width=0.45\linewidth]{figures/slimness}
   \includegraphics[width=0.45\linewidth]{figures/density}
 
-  \caption{Supercluster variables. Left: aspect ratio $\xi$; right:
-    light density $\delta$. Filled points represent data with \ambe
-    source, dark gray (light blue) distribution represents data
-    with \fe source (no source).  The normalization of data without
-    source is to the same exposure time of the \ambe one. For the data
-    with \fe source, a scaling by a factor one tenth is applied for
-    visibility, since the much larger cluster occupancy for these
-    events.  \label{fig:clshape}}
+  \caption{Supercluster variables. Left: slimness $\xi$; right: light
+    density $\delta$. Filled points represent data with \ambe source,
+    dark gray (light blue) distribution represents data with \fe
+    source (no source).  The normalization of data without source is
+    to the same exposure time of the \ambe one. For the data with \fe,
+    a scaling factor of one tenth is applied for clearness, given the
+    larger activity of this source. \label{fig:clshape}}
 
 \end{center}
 \end{figure}
@@ -177,13 +178,12 @@ with the \garfield prediction of 2.3 keV/cm.
   \includegraphics[width=0.45\linewidth]{figures/dedx}
 
   \caption{Supercluster calibrated energy spectrum (left) and their
-    average \dedl.  Filled points represent data with \ambe source,
+    average \dedl. Filled points represent data with \ambe source,
     dark gray (light blue) distribution represents data with \fe
     source (no source).  The normalization of data without source is
-    to the same exposure time of the \ambe one. For the data with \fe
-    source, a scaling by a factor one tenth is applied for visibility,
-    since the much larger cluster occupancy for these
-    events.  \label{fig:energy}}
+    to the same exposure time of the \ambe one. For the data with \fe,
+    a scaling factor of one tenth is applied for clearness, given the
+    larger activity of this source. \label{fig:energy}}
 
 \end{center}
 \end{figure}
@@ -196,38 +196,41 @@ variables provide a powerful handle to discriminate them from nuclear
 recoils candidates, but the small residual background needs to be
 statistically subtracted. The distributions shown earlier, where the
 different types of data are normalized to the same exposure time,
-demostrate that this is already a good estimate of the common
-background. This simple normalization doesn't account for a possible
-bias from the trigger, generated by the PMT signals, as described in
-Sec.~\ref{sec:layout}. In run with the \ambe source the PMT can
-trigger both on signals from neutron recoils or photons produced by
-the $^{241}$Am, and on signals from cosmic rays, while in the sample
-without source only the latter is possible.  This implies that, during
-the same exposure time, the probability to trigger on cosmic rays is
-lower in events with \ambe than in events without source. The trigger
-efficiency scale factor, $\varepsilon_{SF}$, can be obtained as the ratio of the
-number of clusters selected in pure control samples of cosmic rays ($CR$) in
-both types of runs:
+demostrate that the live-time normalization provides already a good
+estimate of the amount of the cosmic rays background in data with
+radioactive sources. This approach doesn't account for a possible bias
+from the trigger, which is generated by the PMT signals, as described
+in Sec.~\ref{sec:layout}. Indeed, in runs with the \ambe source, the
+PMT can trigger both on signals from neutron recoils or photons
+produced by the $^{241}$Am, and on ubiquitous signals from cosmic
+rays, while in the sample without source only the latter is possible.
+This implies that, during the same exposure time, the probability to
+trigger on cosmic rays is lower in events with \ambe than in events
+without source. The trigger efficiency scale factor,
+$\varepsilon_{SF}$, can be obtained as the ratio of the number of
+clusters selected in pure control samples of cosmic rays ($CR$)
+obtained on both types of runs:
 \begin{equation}
 \label{eq:sfeff}
 \varepsilon_{SF} = \frac{N^{AmBe}_{CR}}{N^{no-source}_{CR}}.
 \end{equation}
 
 The $CR$ control region is defined by selecting clusters with
-$l>13$\unit{cm}, $\xi<0.1$, $\tsigmag<50$, within an energy range
-dominated by the cosmic rays contribution, $50<E<80\keV$. The selected
-clusters show small values of $\delta\approx5$, well compatible with
-the small specific ionization of ultra-relativistic particles.  This
-sample is limited in statistics, but is expected to be almost 100\%
-pure. The scale factor obtained is $\varepsilon_{SF}=0.75\pm0.02$.
+$l>13$\unit{cm}, $\xi<0.1$, $\tsigmag<50$ pixels, having an energy
+within a range dominated by the cosmic rays contribution,
+$50<E<80\keV$. The selected clusters show small values of
+$\delta\approx5$, well compatible with the small specific ionization
+of ultra-relativistic particles.  This sample is limited in
+statistics, but it is expected to be almost 100\% pure. The scale
+factor obtained is $\varepsilon_{SF}=0.75\pm0.02$.
 
 The typical light density and polar angle (with respect the horizontal
-axis) for long and clusters of any energy, still dominated by cosmic
-rays, are shown for the \ambe, for the \fe, and for the no-source
-sample, after having applied the $\varepsilon_{SF}$ scale factor to
-the latter, in Fig.~\ref{fig:cosmics}. Clusters with $\delta<6$ are
-thus expected to be mostly coming from cosmic tracks, and they show
-indeed a polar angle which is shifted at values towards $90^\circ$.
+axis) for long clusters of any energy, still dominated by cosmic rays,
+are shown for the \ambe and for the no-source sample, after having
+applied the $\varepsilon_{SF}$ scale factor to the latter, in
+Fig.~\ref{fig:cosmics}. Clusters with $\delta<6$ are thus expected to
+be mostly coming from cosmic tracks, and they show indeed a polar
+angle which is shifted at values towards $90^\circ$.
 
 
 \begin{figure}[ht]
@@ -239,12 +242,10 @@ indeed a polar angle which is shifted at values towards $90^\circ$.
     angle, with respect the horizontal axis, for long clusters,
     dominated by cosmic rays tracks.  Filled points represent data
     with \ambe source, light blue distribution represents data without
-    any source.  The normalization of data without source is to the same
-    exposure time of the \ambe one, accounting for the trigger scale
-    factor $\varepsilon_{SF}$, as defined in the text. For the data
-    with \fe source, a scaling by a factor one tenth is applied for
-    visibility, since the much larger cluster occupancy for these
-    events.  \label{fig:cosmics}}
+    any source.  The normalization of data without source is to the
+    same exposure time of the \ambe one, accounting for the trigger
+    scale factor $\varepsilon_{SF}$, as defined in the
+    text.  \label{fig:cosmics}}
 
 \end{center}
 \end{figure}
