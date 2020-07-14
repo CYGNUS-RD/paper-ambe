@@ -4,8 +4,8 @@
 ############################
 eval `utils/tdr runtime -sh`
 # With line numbers
-pdflatex main
-bibtex main
-pdflatex main
-pdflatex main
+pdflatex LEMON-20-001
+bibtex LEMON-20-001
+pdflatex LEMON-20-001
+pdflatex LEMON-20-001
 exit
