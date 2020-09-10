@@ -1,0 +1,31 @@
+Dear Editor,
+
+We wish to submit an original research article entitled
+“Identification of low energy nuclear recoils in a gas TPC with
+optical readout” for consideration by Measurement Science and
+Technology.  We confirm that this work is original and has not been
+published elsewhere, nor is it currently under consideration for
+publication elsewhere.  In this paper, we report on the development of
+a novel experimental technique to detect signals from low-energy (keV
+energy range) nuclear recoils in a gaseous Time Projection Chamber
+with a GEM amplification stage optically read out by a low-noise
+scientific CMOS camera. This is significant in the search for a
+technique to detect light Dark Matter particles, because we
+demonstrate the ability to identify nuclear recoils down to 6 keV,
+with 99% electron background rejection at the same energy, making this
+a very promising candidate for future investigations of ultra-rare
+events as directional direct Dark Matter searches.
+
+We believe that this manuscript is appropriate for publication by
+"Measurement Science and Technology" because it contains a description
+of the experimental technique and of the algorithm for the image
+reconstruction, based on a multi-stage pattern recognition which
+utilizes an advanced clustering technique. This includes the
+application of existing clustering techniques to this novel
+experimental setup, the development of a full event reconstruction of
+the interactions in the gas volume, through the optical readout of the
+detector. Finally, a statistical analysis to measure the efficiency of
+detecting nuclear recoils and the rejection of different kinds of
+backgrounds is also performed showing promising result in the panorama
+of light Dark Matter candidates search.
+

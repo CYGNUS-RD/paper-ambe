@@ -1,0 +1,10 @@
+The work presented in this article demonstrates the ability to
+reconstruct efficiently nuclear recoils down to an energy of few
+keVs, by using the novel experimental technique of a Time Projection
+Chamber, where the readout grounds on the detection by a CMOS camera
+of the light produced during the charge multiplication in triple GEM
+planes. The novelty of the work consists in the algorithm to
+reconstruct the clusters of light by a sophisticated pattern
+recognition algorithm, and its ability to distinguish between
+different types of particle interactions, like nuclear or electron
+recoils down to an energy of 6 keV.

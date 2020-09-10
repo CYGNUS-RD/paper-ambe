@@ -1,8 +1,7 @@
 The interaction of different particles with the nuclei or the
 electrons in the gas of the TPC produces different patterns of the 2D
-projection of the initial 3D particle trajectory.  These
-characteristics, to which we refer generically as \textit{cluster
-shapes observables}, are useful to discriminate different ionizing
+projection of the initial 3D particle trajectory.  These cluster shape
+observables are useful to discriminate different ionizing
 particles. In particular, they were used to select a pure sample of
 nuclear recoil candidates produced by the interaction of the neutrons
 originating from the \ambe source and to identify various sources of
@@ -33,17 +32,18 @@ following:
       \begin{center}
         \includegraphics[width=0.45\linewidth]{figures/pic_run02156_ev631_cluster1_longprofile}
         \includegraphics[width=0.45\linewidth]{figures/pic_run02156_ev631_cluster1_latprofile}
-        \caption{Supercluster profile in the longitudinal (top) or
-          transverse (bottom) direction, for a long and straight
-          cosmic ray track candidate shown in  Fig.~\ref{fig:super_clusters2} (bottom). The longitudinal profile shows an
-          energy deposition in sub-clusters, while the transverse
-          direction shows the typical width of the diffusion in the
-          gas. For the longitudinal profile, the line represent the
-          average number of photons per slice. For the transverse
-          profile, it represents a fit with a Gaussian
+        \caption{Supercluster profile in the longitudinal (left) or
+          transverse (right) direction, for a long and straight cosmic
+          ray track candidate shown in Fig.~\ref{fig:super_clusters2}
+          (bottom). The longitudinal profile shows an energy
+          deposition in sub-clusters, while the transverse direction
+          shows the typical width of the diffusion in the gas. For the
+          longitudinal profile, the line represent the average number
+          of photons per slice. For the transverse profile, it
+          represents a fit with a Gaussian
           PDF. \label{fig:profiles}}
       \end{center}
-    \end{figure}
+  \end{figure}
 
   \item \textit{projected path length:~} for curly and kinky tracks
     the values returned by the SVD of the supercluster are not an
@@ -59,7 +59,13 @@ following:
     observed width induced by the diffusion in the gas. Thus, as shown
     in Fig.~\ref{fig:profiles} (right), the standard
     deviation, \tsigmag, can estimated by a fit with a Gaussian
-    probability density function (PDF);
+    probability density function (PDF). This modelling is appropriate
+    for the cases of straight tracks, typical of cosmic-ray
+    background, or energetic nuclear recoils, and also for spot-like
+    clusters. Tracks with kinks are badly modeled by a Gaussian
+    function: if the $\chi^2$ of the convergence of the fit is below a
+    threshold, the estimated width from the SVD method described
+    earlier is used;
 
   \item \textit{slimness:~} the ratio of the width over the path
     length, $\xi=w/l_p$, represents the aspect ratio of the
@@ -85,26 +91,30 @@ following:
     $E/E_{true}$, using with \fe source.
 \end{itemize}
 
-The projected supercluster path length, $l_p$, and Gaussian transverse
-size, \tsigmag, are shown in Fig.~\ref{fig:clsize}, for data taken in
-different types of runs.  During the data-taking approximately 3000
-frames were recorded in absence of any external radioactive source
-({\it no-source} sample). In these frames the interaction of
-ultra-relativistic cosmic ray particles (mostly muons) are clearly
-visible as very long clusters. Internal radioactivity of the \lemon
-materials also contribute with several smaller size clusters. About
-1500 frames were acquired with the \ambe source, and approximately
-$10^4$ calibration images with \fe source. In Fig.~\ref{fig:clsize},
-as well as in the following ones showing other cluster properties, the
-distributions obtained in runs without radioactive sources are
-normalized to the \ambe data total CMOS exposure time. For the data
-with \fe source, since the activity of the source is such to produce
-about 15 clusters/event, the data are scaled by a factor one-tenth
-with respect to the \ambe exposure time for clearness. Considerations
-about the trigger efficiency scale factor between data with and
-without an radioactive source are detailed later. The distributions in
-this section aim to show the different cluster shape observables among
-the different kinds of events.
+The distributions of the projected supercluster path length, $l_p$,
+and Gaussian transverse size, \tsigmag, are shown in
+Fig.~\ref{fig:clsize}, for data taken in different types of runs.
+During the data-taking approximately 3000 frames were recorded in
+absence of any external radioactive source ({\it no-source}
+sample). In these frames the interaction of ultra-relativistic cosmic
+ray particles (mostly muons) are clearly visible as very long
+clusters. Internal radioactivity of the \lemon materials also
+contributes with several smaller size clusters. About 1500 frames were
+acquired with the \ambe source, and approximately $10^4$ calibration
+images with \fe source. In Fig.~\ref{fig:clsize}, as well as in the
+following ones showing other cluster properties, the distributions
+obtained in runs without radioactive sources are normalized to
+the \ambe data total CMOS exposure time. For the data with \fe source,
+since the activity of the source is such to produce about 15
+clusters/event, the data are scaled by a factor one-tenth with respect
+to the \ambe exposure time for clearness. Tracks originating from
+cosmic-rays interactions are present also in the data with both types
+of radioactive sources, with an efficiency scale factor slightly
+different from unity because of the trigger. Considerations about the
+trigger efficiency, affecting the background normalization in data
+with a radioactive source are given in Sec.~\ref{sec:background}. The
+distributions in this section aim to show the different cluster shape
+observables among the different kinds of events.
 
 \begin{figure}[ht]
   \begin{center}
@@ -146,15 +156,28 @@ macro-pixel ($4{\times}4$) used at the basic clustering step which can
 be larger than a round spot from \fe. Data with \ambe source, which
 contains a component of nuclear recoils, show a component of round
 spots, similar in size to the ones of \fe, and a more elliptical
-component, with $0.4<\xi<0.8$ values. Finally, the light density,
-$\delta$, is the variable expected to better discriminate among
-different candidates: cosmic rays induced background, electron recoils
-and nuclear recoil candidates. This is the variable used in this paper
-for the final particle identification. The identification results can
-be improved using additional cluster shape variables, also profiting
-of their different correlations for signal and background clusters,
-via a multivariate approach, but here priority is given to the
-straightforwardness, rather than the ultimate performance.
+component, with $0.4<\xi<0.8$ values. Aside from the slightly
+different normalization of the cosmic-rays background in the region
+dominated by these interactions, $0<\xi<0.3$, which is discussed in
+Sec.~\ref{sec:background}, the shape of the distribution shows some
+differences. This can be attributed to the cases of clusters induced
+by the radiation from the source which may overlap with a long track
+from a cosmic ray, changing its shape or, rarely, inducing a track
+splitting.  The effect on the following statistical analysis is an
+underestimation of the signal efficiency, since a loose selection on
+this variable is used to discard cosmic-rays background. Given that
+the signal concentrates at values of $\xi \approx 0.9$, this effect is
+assumed to be negligible.
+
+Finally, the light density, $\delta$, is the variable expected to
+better discriminate among different candidates: cosmic rays induced
+background, electron recoils and nuclear recoil candidates. This is
+the variable used in this paper for the final particle
+identification. The identification results can be improved using
+additional cluster shape variables, also profiting of their different
+correlations for signal and background clusters, via a multivariate
+approach, but in this early analysis a simple cut-based approach is
+chosen, for simplicity.
 
 \begin{figure}[ht]
   \begin{center}
@@ -238,13 +261,37 @@ $50<E<80\keV$. The selected clusters show small values of
 $\delta\approx5$, well compatible with the small specific ionization
 of ultra-relativistic particles.  This sample is limited in
 statistics, but it is expected to be almost 100\% pure. The scale
-factor obtained is $\varepsilon_{SF}=0.75\pm0.02$.
+factor obtained is $\varepsilon_{SF}=0.75\pm0.02$.  A possible
+consequence of occasional nearby clusters from nuclear recoils
+changing the distribution of $\xi$ is considered. The effect is
+expected to be reduced for the long clusters selected in the $CR$
+control region. A systematic uncertainty due to the different shape of
+$\xi$ is estimated by applying the $CR$ selection on the \ambe
+clusters where the slimness is substituted, cluster-by-cluster,
+sampling the distribution in the no-source data. The difference in the
+$N^{AmBe}_{CR}$ is about 1\%, small with respect to the statistical
+uncertainty of $\varepsilon_{SF}$.
+
+In addition to the normalization correction of the cosmic-rays
+background to be applied before subtracting it to the source data, it
+has been mentioned earlier that occasional overlap of long tracks from
+this background and signal tracks moderately distort the cluster shape
+distributions. Splitting of a long track in the data with the source
+may happen because of a gradient change in the region of the overlap
+with a dense nuclear recoil cluster. The typical track lengths of
+cosmic rays and signal tracks are so different that in these
+occurrences the split tracks are still much longer than the signal
+ones, thus they are rejected.  In other cases, when the overlap is
+close to the edges, the track length is increased, and the selection
+dismisses those clusters.  Since the requirement on the track length
+is very loose, the effect on the signal efficiency is assumed to be
+negligible.
 
 In Fig.~\ref{fig:cosmics} the typical light density and polar angle
-(with respect the horizontal axis) distributions for long clusters of
-any energy, still dominated by cosmic rays, are shown for the \ambe
-and for the no-source sample, after having applied the
-$\varepsilon_{SF}$ scale factor to the latter. Clusters with
+(with respect the horizontal axis) distributions for long clusters
+selected with the $CR$ requirements, except the energy one are shown
+for the \ambe and for the no-source sample, after having applied the
+$\varepsilon_{SF}$ scale factor to the latter.  Clusters with
 $\delta<6$ are thus expected to be mostly coming from muon tracks, and
 they show indeed a polar angle which is shifted at values towards
 $90^\circ$.
@@ -257,12 +304,14 @@ $90^\circ$.
 
   \caption{Supercluster light density $\delta$ (left) and polar angle
     (right) - with respect the horizontal axis - distributions for
-    long clusters, dominated by cosmic rays tracks.  Filled points
-    represent data with \ambe source, light blue distribution
+    long clusters, dominated by cosmic rays tracks. The clusters are
+    selected by the $CR$ requirements, except the energy one.  Filled
+    points represent data with \ambe source, light blue distribution
     represents data without any radioactive source.  The normalization
     of data without source is to the same exposure time of the \ambe
     one, accounting for the trigger scale factor $\varepsilon_{SF}$,
-    as defined in the text.  \label{fig:cosmics}}
+    as defined in the text. Bins with negative contents are set to
+    zero value. \label{fig:cosmics}}
 
 \end{center}
 \end{figure}

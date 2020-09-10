@@ -42,6 +42,7 @@
 \documentclass[12pt]{iopart}
 %Uncomment next line if AMS fonts required
 %\usepackage{iopams}  
+\pdfoutput=1
 \usepackage{graphicx} 
 \usepackage{xcolor}
 \usepackage{lineno}
@@ -50,7 +51,7 @@
 \usepackage{amssymb}
 \usepackage{url}
 \usepackage[T1]{fontenc}
-\linenumbers
+%\linenumbers
 
 \begin{document}
 
@@ -80,7 +81,7 @@
 \newcommand{\SRIM} {{\textsc{Srim}}\xspace}
 \newcommand{\garfield} {{\textsc{Garfield}}\xspace}
 \newcommand{\PYTHONthree} {{\textsc{Python3}}\xspace}
-\newcommand{\ROOT} {{\textsc{Root6}}\xspace}
+\newcommand{\ROOT} {{\textsc{Root}}\xspace}
 
 % units
 \newcommand{\unit}[1]{\ensuremath{\textrm{\,#1}}\xspace}
@@ -133,20 +134,20 @@ and S Tomassini$^{3}$}
 \address{$^8$Museo Storico della Fisica e Centro Studi e Ricerche ``Enrico Fermi'', Roma, Italy}
 \address{$^9$Dipartimento di Matematica e Fisica, Universit\`a Roma TRE, Roma, Italy}
 \address{$^{10}$Dipartimento di Ingegneria Chimica, Materiali e Ambiente, Sapienza Universit\`a di Roma, Roma, Italy}
-\ead{emanuele.di.marco@roma1.infn.it}
+\ead{emanuele.dimarco@roma1.infn.it}
 
 \vspace{10pt}
 \begin{indented}
-\item[]May 2020
+\item[]24 July 2020
 \end{indented}
 
 \begin{abstract}
 The search for a novel technology able to detect and reconstruct
 nuclear recoil events in the keV energy range has become more and more
-important as long as vast regions of high mass WIMP-like Dark Matter
+important now that vast regions of high mass WIMP-like Dark Matter
 candidate have been excluded.  Gaseous Time Projection Chambers (TPC)
-with optical readout are very promising candidate combining the
-complete event information provided by the TPC technique to the high
+with optical readout are very promising candidates combining the
+complete event information provided by the TPC technique with the high
 sensitivity and granularity of last generation scientific light
 sensors.  A TPC with an amplification at the anode obtained with Gas
 Electron Multipliers (GEM) was tested at the Laboratori Nazionali di
@@ -161,53 +162,33 @@ technique is presented here. A number of cluster shape observables are
 used to identify nuclear recoils induced by neutrons originated from a
 \ambe source against X-ray \fe photo-electrons. An efficiency of 18\%
 to detect nuclear recoils with an energy of about 6 keV is reached
-obtaining at the same time a 96\% \fe photo-electrons
-suppression. This makes this optically readout gas TPC a very
-promising candidate for future investigations of ultra-rare events as
-directional direct Dark Matter searches.
+while suppressing 96\% of the \fe photoelectrons. This makes this
+optically read out gas TPC a very promising candidate for future
+investigations of ultra-rare events as directional direct Dark Matter
+searches.
  
  
  
  
 \end{abstract}
 
-%
-% Uncomment for keywords
-%\vspace{2pc}
-%\noindent{\it Keywords}: XXXXXX, YYYYYYYY, ZZZZZZZZZ
-%
-% Uncomment for Submitted to journal title message
-%\submitto{\JPA}
-%
-% Uncomment if a separate title page is required
-%\maketitle
-% 
-% For two-column output uncomment the next line and choose [10pt] rather than [12pt] in the \documentclass declaration
-%\ioptwocol
-%
-
-
-
 \section{Introduction}
-%\textcolor{red}{Uso degli aggettivi in ordine corretto Number Opinion Size Shape Age Color Origin Material Purpose}
 
-%\textcolor{red}{Uso degli aggettivi in ordine corretto Three Ugly Big Long Old Red French Metal Killing Knives }
-
-The advent of a market of high position resolution and single photon
-light sensors can open new opportunity to investigate ultra-low rate
-phenomena as Dark Matter (DM) particle scattering on nuclei in a
-gaseous target.
+The advent of a market of single-photon light sensors with high
+position resolution can open new opportunities to investigate
+ultra-low rate phenomena as Dark Matter (DM) particle scattering on
+nuclei in a gaseous target.
 
 The nature of DM is still one of the key issues to understand our
 Universe \cite{PhysRevLett.39.165,Undagoitia_2015}.  Different models
-predict the existence of neutral particles with a mass of few GeVs or
+predict the existence of neutral particles with a mass of few GeV or
 higher that would fill our Galaxy
 \cite{PhysRevLett.113.171301,PhysRevD.79.115016,doi:10.1142/S0217751X13300287,ZUREK201491}. They
 could interact with the nuclei present in ordinary matter producing
 highly ionizing nuclear recoils but with a kinetic energy as small as
-few keVs. Moreover, given the motion of the Sun in the Milky Way
+few keV. Moreover, given the motion of the Sun in the Milky Way
 towards the Cygnus constellation, such nuclear recoils would exhibit
-in galactic coordinate a dipole angular distribution in a terrestrial
+in galactic coordinates a dipole angular distribution in a terrestrial
 detector \cite{MAYET20161}.  In this paper the use of a scientific
 CMOS camera to capture the light emitted by Gas Electron Multipliers
 (GEMs) in a Time Projection Chamber (TPC) device is described. The
@@ -215,24 +196,23 @@ GEMs are located in the TPC gas volume at the anode position and are
 used to amplify the ionization produced in the gas by the nuclear
 recoils and other particles. A secondary scintillation light is
 produced in the amplification of the avalanche process by the GEM.
-This light and its spatial distribution is reconstructed in the
+This light and its spatial distribution are reconstructed in the
 detector and characterized by means of a clustering algorithm.
 
 
-%Neutron and $\gamma$ radiation emitted by radioactive sources are used to set in motion atomic electrons and nuclei, respectively, in the gas volume. Moreover, natural radiation as cosmic rays is leaving a trail of ionization in the gas.
 Different type of particles will produce distinctive and diverse
 patterns of ionization charge, and therefore of light emitted by the
 GEMs, given the different way they deposit energy and interact with
-matter.
-%All types of interactions produce distinctive patterns of light emission from the GEMs that can be reconstructed and analyzed.
-Therefore, nuclear recoils can be efficiently identified and separated
-from different kinds of background down to a few \keV kinetic energy.
-The study of the optical readout of a TPC has been recently conducted
-with several small size prototypes (NITEC~\cite{JINST:nitec},
+matter.  Therefore, nuclear recoils can be efficiently identified and
+separated from different kinds of background down to a few \keV
+kinetic energy.  The study of the optical readout of a TPC has been
+recently conducted with several small size prototypes
+(NITEC~\cite{JINST:nitec},
 ORANGE~\cite{NIM:Marafinietal,bib:jinst_orange2},
 \lemon~\cite{bib:eps, bib:ieee17,bib:elba}) with various particle
 sources, in the context of the \cygno
-project~\cite{Abritta_Costa_2020,CYGNOweb}. In the following, the
+project~\cite{Abritta_Costa_2020,CYGNOweb}, as well as alternative
+experiments, as ARIADNE~\cite{Roberts_2019}. In the following, the
 study of nuclear recoils excited by neutrons from an \ambe source and
 electron recoils from a \fe source in the gas volume of the \lemon
 prototype is presented.
@@ -252,11 +232,11 @@ detector in the experimental area is shown in Fig.~\ref{fig:lemon}
 	\includegraphics[width=0.70\linewidth]{figures/lemon.png}
         \includegraphics[width=0.20\linewidth]{LEMON-Shielded.jpg}
   	\caption{Left: the \lemon prototype with  its 7 liter sensitive
-          volume (A), the PMT (B), the adjustable bellow (C) and the
+          volume (A), the PMT (B), the adjustable bellows (C) and the
           sCMOS camera with its lens (D). Right: \lemon
           with the lead shield around the drift volume cage. The sCMOS
           camera (on the front) is looking at the GEMs through a
-          blackened bellow.
+          blackened bellows.
   	\label{fig:lemon}}
 \end{figure}
 %
@@ -269,7 +249,7 @@ holes and 140\unit{$\mu$m} pitch)~\cite{bib:thesis} were used with two
 2\unit{mm} wide transfer gaps between them. The light emitted from the
 GEMs is detected with an \texttt{ORCA-Flash~4.0} camera \cite{ORCAcamera}
 through a $203{\times}254{\times}1$\unit{mm$^3$} transparent window
-and a bellow of adjustable length.  This camera is positioned at a 52
+and a bellows of adjustable length.  This camera is positioned at a 52
 cm distance from the outermost GEM layer and is based on a sCMOS
 sensor with high granularity ($2048{\times}2048$ pixels), very low
 noise (around two photons per pixel), high sensitivity (70\% quantum
@@ -306,9 +286,8 @@ The \lemon detector was operated in an overground location at
 Laboratori Nazionali di Frascati (LNF) with a He-CF$_4$ (60/40) gas
 mixture at atmospheric pressure, the triple GEM system set at a
 voltage across each GEM sides of 460\unit{V} and a transfer field
-between the GEM layers of 2.5\unit{kV/cm}. A
-six-independent-HV-channels \texttt{CAEN~A1257} module
-%a HV GEM power supply \cite{Corradi:2007df} 
+between the GEM layers of 2.5\unit{kV/cm}.  A \texttt{CAEN} model
+\texttt {SY1527} high-voltage module with six independent channels
 ensured stability and monitored the bias currents with a precision of
 20\unit{nA}. The gas mixture was kept under continuous flow of about
 200\unit{cc/min} and with the GEMs operated at a $2.0\times10^6$
@@ -334,13 +313,12 @@ by:
 \label{eq:diff}
 \sigma = \sqrt{\sigma^2_0 \oplus D^2 \cdot z},
 \end{equation}
-where $D$ is the transverse diffusion coefficient,
-whose value  at room temperature
-%$D_{\mathrm{T}}^{60/40}~=~140~\frac{\mu{\mathrm{m}}}{\sqrt{\mathrm{cm}}}$.
-140\unit{$\mu{\mathrm{m}}/\sqrt{\mathrm{cm}}$} was obtained with a
-simulation.  The value of $\sigma^2_0$ was measured to be about
-300\unit{$\mu$m} \cite{bib:btf,bib:fe55New}. Therefore, in average, a
-point-like ionization will result in a spot of [3--4]\unit{mm$^2$}.
+where $D$ is the transverse diffusion coefficient, whose value at room
+temperature 140\unit{$\mu{\mathrm{m}}/\sqrt{\mathrm{cm}}$} was
+obtained with a simulation.  The value of $\sigma_0$ was measured to
+be about 300\unit{$\mu$m} \cite{bib:btf,bib:fe55New}. Therefore, in
+average, a point-like ionization will result in a spot of
+3--4\unit{mm$^2$}.
 
 The expected effective ranges of electron and nuclear recoils were
 evaluated respectively with \GEANTfour~\cite{GEANT4} and with
@@ -353,7 +331,7 @@ example- for He-nuclei.
   \begin{center}
     \includegraphics[width=0.49\linewidth]{figures/range_ER_NR.pdf}
     \caption{Average ranges for electron and He-nucleus recoils as a
-      function of their initial kinetic energy.
+      function of their initial kinetic energy. Lines in the figure are guide for the eye.
       \label{fig:range}}
       \end{center}
 \end{figure}
@@ -394,17 +372,15 @@ These results show that:
 \end{figure}
 
 The PMT waveform was sent to a digitizer board with a sampling
-frequency of 4\unit{GS/s}. The  trigger scheme of the detector is based on
-the PMT signal: if, during the exposure time window, the PMT waveform exhibits a peak exceeding a threshold of 80\unit{mV}, it is acquired in a time
-window of 25\unit{$\mu$s} and the corresponding sCMOS image is stored.
-The digitizer is operated in single-event mode. No more than one  25\unit{$\mu$s} long PMT waveform
- is recorded in each sCMOS exposure time, even if during the sCMOS exposure time several PMT signals are produced.  Therefore, the PMT
-information was mainly exploited only to select events with a cosmic ray
-track.
-%% Forward reference is ugly. The picture is better later, when the difference Fe/cosm is explained.
-%% Two examples of acquired waveforms are shown in
-%% Fig.~\ref{fig:waveforms}.
-
+frequency of 4\unit{GS/s}. The trigger scheme of the detector is based
+on the PMT signal: if, during the exposure time window, the PMT
+waveform exhibits a peak exceeding a threshold of 80\unit{mV}, it is
+acquired in a time window of 25\unit{$\mu$s} and the corresponding
+sCMOS image is stored.  The digitizer is operated in single-event
+mode. No more than one 25\unit{$\mu$s} long PMT waveform is recorded
+in each sCMOS exposure time, even if during the sCMOS exposure time
+several PMT signals are produced.  Therefore, the PMT information was
+mainly exploited only to select frames with a cosmic-ray track.
 
 
 
@@ -420,7 +396,8 @@ can be used for energy calibration purposes, since the energy releases
 along the path, $dE/dx$, can be predicted given the gas mixture and
 pressure.
 
-Two different artificial radioactive sources were employed for testing and studying the detector responses.
+Two different artificial radioactive sources were employed for testing
+and studying the detector responses.
 
 \vspace{10pt}
 
@@ -594,7 +571,9 @@ with an efficiency of 96.5\% (99.2\%) against nuclear recoils by
 retaining a capability of detecting them with an efficiency of 50\%
 (40\%), averaged across the measured \ambe spectrum.
 
-In particular, the nuclear recoil detection efficiency was measured to be 40\% for deposited energies lower than 20\keV and 14\% in the range (5--10)\keV.
+In particular, the nuclear recoil detection efficiency was measured to
+be 40\% for deposited energies lower than 20\keV and 14\% in the range
+(5--10)\keV.
 
 The results obtained in the studies presented in this paper can be
 improved by means of more sophisticated analyses exploiting a
@@ -604,11 +583,11 @@ enhancement of sensitivity can be achieved with a DAQ system
 collecting single PMT waveforms to be correlated with the track
 reconstructed in the sCMOS images.
 
-\section{Acknoledgements}
-We are grateful to Servizio Sorgente LNF...  This work was supported
+\section{Acknowledgments}
+We are grateful to ``Servizio Sorgente LNF''.  This work was supported
 by the European Research Council (ERC) under the European Union’s
 Horizon 2020 research and innovation program (grant agreement No
-818744)”.
+818744).
 
 \bibliographystyle{ieeetr}
 \bibliography{LEMON-20-001}
