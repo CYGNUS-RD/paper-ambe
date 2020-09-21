@@ -69,9 +69,10 @@ following:
 
   \item \textit{slimness:~} the ratio of the width over the path
     length, $\xi=w/l_p$, represents the aspect ratio of the
-    cluster. It is very useful to discriminate between cosmic
-    rays-induced background (long and thin) from low energy nuclear or
-    electron recoils (more elliptical or round, as the \fe spots);
+    cluster. It is very useful to discriminate between
+    cosmic-ray-induced background (long and thin) from low energy
+    nuclear or electron recoils (more elliptical or round, as the \fe
+    spots);
     
   \item \textit{integral:~} the total number of photons detected by all the
   pixels gathered in the supercluster, \isclu, as defined in
@@ -108,7 +109,7 @@ the \ambe data total CMOS exposure time. For the data with \fe source,
 since the activity of the source is such to produce about 15
 clusters/event, the data are scaled by a factor one-tenth with respect
 to the \ambe exposure time for clearness. Tracks originating from
-cosmic-rays interactions are present also in the data with both types
+cosmic-ray interactions are present also in the data with both types
 of radioactive sources, with an efficiency scale factor slightly
 different from unity because of the trigger. Considerations about the
 trigger efficiency, affecting the background normalization in data
@@ -129,7 +130,9 @@ observables among the different kinds of events.
     radioactive source is scaled to the same exposure time of
     the \ambe one. For the data with \fe source , a scaling factor of
     one tenth is applied for clearness, given the larger activity of
-    this source.  \label{fig:clsize}}
+    this source. Filled dark-grey and dark-azure bands represent the
+    statistical uncertainty on data with no source and \fe source,
+    respectively. \label{fig:clsize}}
 
     \end{center}
 \end{figure}
@@ -157,7 +160,7 @@ be larger than a round spot from \fe. Data with \ambe source, which
 contains a component of nuclear recoils, show a component of round
 spots, similar in size to the ones of \fe, and a more elliptical
 component, with $0.4<\xi<0.8$ values. Aside from the slightly
-different normalization of the cosmic-rays background in the region
+different normalization of the cosmic-ray background in the region
 dominated by these interactions, $0<\xi<0.3$, which is discussed in
 Sec.~\ref{sec:background}, the shape of the distribution shows some
 differences. This can be attributed to the cases of clusters induced
@@ -170,10 +173,23 @@ the signal concentrates at values of $\xi \approx 0.9$, this effect is
 assumed to be negligible.
 
 Finally, the light density, $\delta$, is the variable expected to
-better discriminate among different candidates: cosmic rays induced
+better discriminate among different candidates: cosmic-ray-induced
 background, electron recoils and nuclear recoil candidates. This is
-the variable used in this paper for the final particle
-identification. The identification results can be improved using
+the variable used in this paper for the final particle identification.
+Due to electron diffusion in gas along the drift path, the measured
+$\delta$ depends on the $z$ position of the cluster.
+%parole alate
+
+Because the spot size is expected to increase by about a factor 4 from 
+$z$~=0\unit{cm} to $z$~=20\unit{cm} (equation~\ref{eq:diff}), 
+assuming an uniform distribution of clusters within the sensitive volume, 
+size distribution is expected to have a relative standard deviation of about 35\%.
+This spoils the precision in the evaluation of the real $\delta$ 
+both for the signal and for the background cluster resulting in a deterioration of the selection performance.
+Different methods to evaluate the cluster $z$ are under development and will
+allow a more effective determination of $\delta$.
+
+Moreover, the identification results can be improved using
 additional cluster shape variables, also profiting of their different
 correlations for signal and background clusters, via a multivariate
 approach, but in this early analysis a simple cut-based approach is
@@ -190,7 +206,9 @@ chosen, for simplicity.
     source (no source).  The normalization of data without source is
     to the same exposure time of the \ambe one. For the data with \fe,
     a scaling factor of one tenth is applied for clearness, given the
-    larger activity of this source. \label{fig:clshape}}
+    larger activity of this source. Filled dark-grey and dark-azure
+    bands represent the statistical uncertainty on data with no source
+    and \fe source, respectively. \label{fig:clshape}}
 
 \end{center}
 \end{figure}
@@ -221,7 +239,9 @@ inclination of 56$^{\circ}$ was measured from track reconstruction) is
     source (no source).  The normalization of data without source is
     to the same exposure time of the \ambe one. For the data with \fe,
     a scaling factor of one tenth is applied for clearness, given the
-    larger activity of this source. \label{fig:energy}}
+    larger activity of this source. Filled dark-grey and dark-azure
+    bands represent the statistical uncertainty on data with no source
+    and \fe source, respectively. \label{fig:energy}}
 
 \end{center}
 \end{figure}
@@ -272,14 +292,14 @@ sampling the distribution in the no-source data. The difference in the
 $N^{AmBe}_{CR}$ is about 1\%, small with respect to the statistical
 uncertainty of $\varepsilon_{SF}$.
 
-In addition to the normalization correction of the cosmic-rays
-background to be applied before subtracting it to the source data, it
-has been mentioned earlier that occasional overlap of long tracks from
-this background and signal tracks moderately distort the cluster shape
-distributions. Splitting of a long track in the data with the source
-may happen because of a gradient change in the region of the overlap
-with a dense nuclear recoil cluster. The typical track lengths of
-cosmic rays and signal tracks are so different that in these
+In addition to the normalization correction of the cosmic-ray
+background to be applied before subtracting it from the source data,
+it has been mentioned earlier that occasional overlap of long tracks
+from this background and signal tracks moderately distort the cluster
+shape distributions. Splitting of a long track in the data with the
+source may happen because of a gradient change in the region of the
+overlap with a dense nuclear recoil cluster. The typical track lengths
+of cosmic rays and signal tracks are so different that in these
 occurrences the split tracks are still much longer than the signal
 ones, thus they are rejected.  In other cases, when the overlap is
 close to the edges, the track length is increased, and the selection
@@ -311,7 +331,8 @@ $90^\circ$.
     of data without source is to the same exposure time of the \ambe
     one, accounting for the trigger scale factor $\varepsilon_{SF}$,
     as defined in the text. Bins with negative contents are set to
-    zero value. \label{fig:cosmics}}
+    zero value. The filled dark-azure band represents the statistical
+    uncertainty on data with no source. \label{fig:cosmics}}
 
 \end{center}
 \end{figure}

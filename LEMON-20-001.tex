@@ -142,30 +142,29 @@ and S Tomassini$^{3}$}
 \end{indented}
 
 \begin{abstract}
-The search for a novel technology able to detect and reconstruct
-nuclear recoil events in the keV energy range has become more and more
-important now that vast regions of high mass WIMP-like Dark Matter
-candidate have been excluded.  Gaseous Time Projection Chambers (TPC)
-with optical readout are very promising candidates combining the
+The search for a novel technology, able to detect and reconstruct
+nuclear recoil events in the keV energy range, has become more and
+more important now that vast regions of high mass WIMP-like Dark
+Matter candidate have been excluded.  Gaseous Time Projection Chambers
+(TPC) with optical readout are very promising candidates combining the
 complete event information provided by the TPC technique with the high
-sensitivity and granularity of last generation scientific light
-sensors.  A TPC with an amplification at the anode obtained with Gas
-Electron Multipliers (GEM) was tested at the Laboratori Nazionali di
+sensitivity and granularity of latest generation light sensors.  A TPC
+with an amplification at the anode, obtained with Gas Electron
+Multipliers (GEM), was tested at the Laboratori Nazionali di
 Frascati. Photons and neutrons from radioactive sources were employed
 to induce recoiling nuclei and electrons with kinetic energy in the
-range [1--100]\keV.  A He-CF$_4$ (60/40) gas mixture was used at
+range 1--100 \keV.  A He-CF$_4$ (60/40) gas mixture was used at
 atmospheric pressure and the light produced during the multiplication
 in the GEM channels was acquired by a high position resolution and low
-noise scientific CMOS camera and a photomultiplier. A multi-stage
-pattern recognition algorithm based on an advanced clustering
-technique is presented here. A number of cluster shape observables are
-used to identify nuclear recoils induced by neutrons originated from a
-\ambe source against X-ray \fe photo-electrons. An efficiency of 18\%
-to detect nuclear recoils with an energy of about 6 keV is reached
-while suppressing 96\% of the \fe photoelectrons. This makes this
-optically read out gas TPC a very promising candidate for future
-investigations of ultra-rare events as directional direct Dark Matter
-searches.
+noise CMOS camera and a photomultiplier. A multi-stage pattern
+recognition algorithm based on an advanced clustering technique is
+presented here. A number of cluster shape observables are used to
+identify nuclear recoils induced by neutrons originated from a \ambe
+source against X-ray \fe photo-electrons. An efficiency of 18\% to
+detect nuclear recoils with an energy of about 6 keV is reached, while
+suppressing 96\% of the \fe photoelectrons, making this optically read
+out gas TPC a very promising candidate for future investigations of
+ultra-rare events as directional direct Dark Matter searches.
  
  
  
@@ -175,7 +174,7 @@ searches.
 \section{Introduction}
 
 The advent of a market of single-photon light sensors with high
-position resolution can open new opportunities to investigate
+position resolution can open a new opportunity to investigate
 ultra-low rate phenomena as Dark Matter (DM) particle scattering on
 nuclei in a gaseous target.
 
@@ -189,15 +188,17 @@ highly ionizing nuclear recoils but with a kinetic energy as small as
 few keV. Moreover, given the motion of the Sun in the Milky Way
 towards the Cygnus constellation, such nuclear recoils would exhibit
 in galactic coordinates a dipole angular distribution in a terrestrial
-detector \cite{MAYET20161}.  In this paper the use of a scientific
-CMOS camera to capture the light emitted by Gas Electron Multipliers
-(GEMs) in a Time Projection Chamber (TPC) device is described. The
-GEMs are located in the TPC gas volume at the anode position and are
-used to amplify the ionization produced in the gas by the nuclear
-recoils and other particles. A secondary scintillation light is
-produced in the amplification of the avalanche process by the GEM.
-This light and its spatial distribution are reconstructed in the
-detector and characterized by means of a clustering algorithm.
+detector \cite{MAYET20161}.  In this paper the use of a current
+generation CMOS camera providing very low noise level together with a
+large granularity (often indicated as {\it scientific CMOS} or sCMOS)
+to capture the light emitted by Gas Electron Multipliers (GEMs) in a
+Time Projection Chamber (TPC) device is described. The GEMs are
+located in the TPC gas volume at the anode position and are used to
+amplify the ionization produced in the gas by the nuclear recoils and
+other particles. A secondary scintillation light is produced in the
+amplification of the avalanche process by the GEM.  This light and its
+spatial distribution are reconstructed in the detector and
+characterized by means of a clustering algorithm.
 
 
 Different type of particles will produce distinctive and diverse
@@ -211,7 +212,7 @@ recently conducted with several small size prototypes
 ORANGE~\cite{NIM:Marafinietal,bib:jinst_orange2},
 \lemon~\cite{bib:eps, bib:ieee17,bib:elba}) with various particle
 sources, in the context of the \cygno
-project~\cite{Abritta_Costa_2020,CYGNOweb}, as well as alternative
+project~\cite{Abritta_Costa_2020,CYGNOweb}, as well as for other
 experiments, as ARIADNE~\cite{Roberts_2019}. In the following, the
 study of nuclear recoils excited by neutrons from an \ambe source and
 electron recoils from a \fe source in the gas volume of the \lemon
@@ -229,18 +230,18 @@ detector in the experimental area is shown in Fig.~\ref{fig:lemon}
 % 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.70\linewidth]{figures/lemon.png}
-        \includegraphics[width=0.20\linewidth]{LEMON-Shielded.jpg}
-  	\caption{Left: the \lemon prototype with  its 7 liter sensitive
+	\includegraphics[width=0.90\linewidth]{figures/lemon.pdf} \\
+        \includegraphics[width=0.30\linewidth]{LEMON-Shielded.pdf}
+  	\caption{Top: the \lemon prototype with  its 7 liter sensitive
           volume (A), the PMT (B), the adjustable bellows (C) and the
-          sCMOS camera with its lens (D). Right: \lemon
+          sCMOS camera with its lens (D). Bottom: \lemon
           with the lead shield around the drift volume cage. The sCMOS
           camera (on the front) is looking at the GEMs through a
           blackened bellows.
   	\label{fig:lemon}}
 \end{figure}
 %
-The sensitive volume where the ionization electrons are drifting
+The sensitive volume, where the ionization electrons are drifting,
 features a 200$\times$240\unit{mm$^2$} elliptical field cage with a
 200 mm distance between the anode and the cathode. The anode side is
 instrumented with a $200{\times}240$\unit{mm$^2$} rectangular triple
@@ -284,38 +285,38 @@ radioactivity, was estimated.
 
 The \lemon detector was operated in an overground location at
 Laboratori Nazionali di Frascati (LNF) with a He-CF$_4$ (60/40) gas
-mixture at atmospheric pressure, the triple GEM system set at a
-voltage across each GEM sides of 460\unit{V} and a transfer field
-between the GEM layers of 2.5\unit{kV/cm}.  A \texttt{CAEN} model
-\texttt {SY1527} high-voltage module with six independent channels
-ensured stability and monitored the bias currents with a precision of
-20\unit{nA}. The gas mixture was kept under continuous flow of about
-200\unit{cc/min} and with the GEMs operated at a $2.0\times10^6$
-electric gain. The typical photon yield for this type of gas mixtures
-has been measured to be around 0.07 photons per avalanche
-electron\cite{bib:jinst_orange1, bib:roby, bib:tesinatalia} and
-therefore the overall light gain is about $10^6$. The field cage was
-powered by a \texttt{CAEN~N1570}~\cite{CAENN1570}, generating an
-electric field of 0.5~kV/cm.
+mixture at atmospheric pressure. The triple GEM system was operated
+with a voltage across each GEM sides of 460\unit{V} and with a
+transfer field between the GEM layers of 2.5\unit{kV/cm}.  A
+\texttt{CAEN} \texttt {SY1527} high-voltage module with six
+independent channels ensured an adequate voltage stability, and
+monitored the bias currents with a precision of 20\unit{nA}. The gas
+mixture was kept under a continuous flow of about 200\unit{cc/min} and
+with the GEMs operated at a $2.0\times10^6$ electric gain. The typical
+photon yield for this type of gas mixtures has been measured to be
+around 0.07 photons per avalanche electron\cite{bib:jinst_orange1,
+  bib:roby, bib:tesinatalia}, and therefore the overall light gain is
+about $10^6$. The field cage was powered by a
+\texttt{CAEN~N1570}~\cite{CAENN1570}, generating an electric field of
+0.5 \unit{kV/cm}.
   
 The motion of particles within the gas mixtures was studied by means
-of different simulation tools. In particular,
+of different simulation tools. In particular, the 
 \garfield~\cite{bib:garfield,bib:garfield1} program was used to
 evaluate the transport properties for ionization electrons in the
-sensitive volume for an electric field of 500\unit{V/cm}.
+sensitive volume for an electric field of  0.5 \unit{kV/cm}.
 
 Given the diffusion in the gas, ionization electrons produced at a
 distance $z$ from the GEM will distribute over a region on the GEM
-surface, having a Gaussian transverse profile with a $\sigma$ given
-by:
+surface with  a Gaussian transverse profile having : 
 %
 \begin{equation}
 \label{eq:diff}
-\sigma = \sqrt{\sigma^2_0 \oplus D^2 \cdot z},
+\sigma = \sqrt{\sigma^2_0 +  D^2 \cdot z},
 \end{equation}
 where $D$ is the transverse diffusion coefficient, whose value at room
 temperature 140\unit{$\mu{\mathrm{m}}/\sqrt{\mathrm{cm}}$} was
-obtained with a simulation.  The value of $\sigma_0$ was measured to
+obtained with this simulation.  The value of $\sigma_0$ was measured to
 be about 300\unit{$\mu$m} \cite{bib:btf,bib:fe55New}. Therefore, in
 average, a point-like ionization will result in a spot of
 3--4\unit{mm$^2$}.
@@ -410,7 +411,7 @@ emits:
  \begin{itemize}
      \item photons with an energy of 59\keV produced by $^{241}$Am;
      \item neutrons with a kinetic energy mainly in a range
-       [1--10]\MeV
+       1--10\MeV
      \item photons with an energy of 4.4\MeV produced along with
        neutrons in the interaction between $\alpha$ and Be nucleus.
  \end{itemize}
@@ -506,12 +507,12 @@ Section~\ref{sec:clustershapes}.
 \input{section_zerosuppression}
 
 
-\subsection{Basic clusters reconstruction}
+\subsection{Basic cluster reconstruction}
 \label{sec:basiccl}
 \input {section_basicclusters}
 
 
-\subsection{Superclusters reconstruction}
+\subsection{Supercluster reconstruction}
 \label{sec:supercl}
 \input{section_superclusters}
 
@@ -563,8 +564,8 @@ the gas (either an electron or a nucleus). Cosmic ray long tracks are
 also clearly separated.
 
 Because of their larger mass and electric charge, nuclear recoils are
-expected to release their energy by ionizing the gas molecules in few
-hundreds \unit{$\mu$m} while the electrons are able to travel longer
+expected to release their energy by ionizing the gas molecules in a few
+hundred \unit{$\mu$m} while the electrons are able to travel longer
 paths. For this reason, by exploiting the spatial distribution of the
 collected light, it was possible to identify 5.9\keV electron recoils
 with an efficiency of 96.5\% (99.2\%) against nuclear recoils by
